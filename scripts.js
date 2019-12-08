@@ -15,10 +15,18 @@ window.addEventListener('load', function () {
   let id1pos = id1.getBoundingClientRect()
 
   //function to check if said sections are any distance from viewport.
-  function isInViewport(elem, section) {
-    if (elem.top >= -(window.innerHeight / 3) && elem.top <= (window.innerHeight / 3)) {
-      console.log(section,' is in viewport')
-    } 
+  function isInViewport(elem, section, id) {
+    if (elem.top >= -(window.innerHeight / 3) && elem.top <= (window.innerHeight / 1.5)) {
+      console.log(section, ' is in viewport')
+      id.classList.remove('stealth','fadeOut')
+      id.classList.add('fadeIn','slow')
+    } else {
+      id.classList.remove('fadeIn','slow')
+      id.classList.add('fadeOut')
+      setTimeout(()=>{
+        id.classList.add('stealth')
+      },100)
+    }
   }
 
   //function to update element's reference from the top, on scroll.
@@ -29,9 +37,9 @@ window.addEventListener('load', function () {
     id3pos = id3.getBoundingClientRect()
     id4pos = id4.getBoundingClientRect()
 
-    isInViewport(id1pos, 'section 1')
-    isInViewport(id2pos, 'section 2')
-    isInViewport(id3pos, 'section 3')
-    isInViewport(id4pos, 'section 4')
+    isInViewport(id1pos, 'section 1', id1)
+    isInViewport(id2pos, 'section 2', id2)
+    isInViewport(id3pos, 'section 3', id3)
+    isInViewport(id4pos, 'section 4', id4)
   })
 })

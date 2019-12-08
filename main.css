@@ -251,8 +251,8 @@ br {
   flex-direction: column;
 }
 .flex-container {  
-  transition: ease-out 0.2s;
-  transition-delay: 0.2s;
+  transition: ease-in-out 0.5s;
+  /* transition-delay: 0.2s; */
   display: flex;
   flex-direction: row;
   height: inherit;
@@ -287,6 +287,10 @@ br {
 .spacer {
   min-height: 140px;
 }
+.inViewport {
+  font-size: x-large;
+  color: gold;
+}
 footer {
   height: 300px;
   width: 100vw;
@@ -295,4 +299,10 @@ footer {
 p.left {
   color: white;
   text-align: left;
+}
+.hidden {
+  display: none;
+}
+.stealth {
+  visibility: hidden;
 }

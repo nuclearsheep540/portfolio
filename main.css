@@ -1,3 +1,8 @@
+/* FONT IMPORTS */
+
+/* Bebas Neue */
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
 /* NORMALIZE
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -30,6 +35,10 @@ pre {
    ========================================================================== */
 a {
   background-color: transparent;
+  text-decoration: none;
+  color: rgb(27, 29, 29);
+  font-family: 'arial';
+  transition: linear 0.15s;
 }
 abbr[title] {
   border-bottom: none; /* 1 */
@@ -189,10 +198,10 @@ nav {
   flex-direction: column;
   position: fixed;
   left: 10px;
-  min-height: 95vh;
+  min-height: 65vh;
   max-width: 45px;
-  border: 1px solid gold;
-  margin: 6px 0px;
+  /* border: 1px solid gold; */
+  margin: 0px;
 }
 ul {
   -webkit-transform: rotate(270deg);
@@ -201,7 +210,7 @@ ul {
   -ms-transform: rotate(270deg);
   transform: rotate(270deg);
   position: fixed;
-  bottom: 10px;
+  bottom: 33%;
   display: flex;
   list-style: none;
   color: red;
@@ -210,14 +219,22 @@ ul {
   margin: auto;
 }
 li {
-  text-align: center;
-  margin: 0 30px;
+  margin: 15px;
+  text-decoration: none;
 }
 br {
   min-height: 300px;
 }
+.navView{
+  font-size: 130%;
+  font-weight: 800;
+  transition: linear 0.15s;
+  margin: 0px 20px;
+}
 .logo {
-  color: white;
+  color: whitesmoke;
+  font-family: 'Bebas Neue', cursive;
+  font-size: xx-large;
 }
 .full-bleed {
   padding: 0px;
@@ -292,14 +309,14 @@ svg {
   margin: 8px;
 }
 .spacer {
-  min-height: 140px;
+  min-height: 100px;
 }
 .inViewport {
   font-size: x-large;
   color: gold;
 }
 footer {
-  height: 300px;
+  height: 30vh;
   width: 100vw;
   background-color: rgb(27, 29, 29);
 }

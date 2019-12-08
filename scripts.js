@@ -15,14 +15,16 @@ window.addEventListener('load', function () {
   let id1pos = id1.getBoundingClientRect()
 
   //function to check if said sections are any distance from viewport.
-  function isInViewport(elem, section, id) {
-    if (elem.top >= -(window.innerHeight / 3 ) && elem.top <= (window.innerHeight / 1.5)) {
-      console.log(section, ' is in viewport')
+  function isInViewport(elem, navView, id) {
+    if (elem.top >= -(window.innerHeight / 3.5 ) && elem.top <= (window.innerHeight / 1.5)) {
+      // console.log(section, ' is in viewport')
       id.classList.remove('stealth','fadeOut')
       id.classList.add('fadeIn','slow')
+      document.querySelector(`${navView}`).classList.add('navView','heartbeat')
     } else {
       id.classList.remove('fadeIn','slow')
       id.classList.add('fadeOut')
+      document.querySelector(`${navView}`).classList.remove('navView','heartbeat') 
       setTimeout(()=>{
         id.classList.add('stealth')
       },100)
@@ -37,9 +39,9 @@ window.addEventListener('load', function () {
     id3pos = id3.getBoundingClientRect()
     id4pos = id4.getBoundingClientRect()
 
-    isInViewport(id1pos, 'section 1', id1)
-    isInViewport(id2pos, 'section 2', id2)
-    isInViewport(id3pos, 'section 3', id3)
-    isInViewport(id4pos, 'section 4', id4)
+    isInViewport(id1pos, '.navView1', id1)
+    isInViewport(id2pos, '.navView2', id2)
+    isInViewport(id3pos, '.navView3', id3)
+    isInViewport(id4pos, '.navView4', id4)
   })
 })

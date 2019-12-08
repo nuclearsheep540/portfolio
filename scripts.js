@@ -1,43 +1,37 @@
+//Check if elements are in viewport
 window.addEventListener('load', function () {
-  //Element reading for viewport specific rendering
+
+  //Declare html sections to listen to
   const id4 = document.getElementById('4')
-  const id4pos = id4.getBoundingClientRect()
-  console.log('id4 = ', id4pos)
+  let id4pos = id4.getBoundingClientRect()
 
   const id3 = document.getElementById('3')
-  const id3pos = id3.getBoundingClientRect()
-  console.log('id3 = ', id3pos)
+  let id3pos = id3.getBoundingClientRect()
 
   const id2 = document.getElementById('2')
-  const id2pos = id2.getBoundingClientRect()
-  console.log('id2 = ', id2pos)
+  let id2pos = id2.getBoundingClientRect()
 
   const id1 = document.getElementById('1')
-  const id1pos = id1.getBoundingClientRect()
-  console.log('id1 = ', id1pos)
+  let id1pos = id1.getBoundingClientRect()
 
-  if (id4pos.top >= -100 || id4pos.top <= 50
-    // id4pos.left >= 0 &&
-    // id4pos.right <= (window.innerWidth || document.documentElement.clientWidth) &&
-    // id4pos.bottom >= (window.innerHeight || document.documentElement.clientHeight)
-  ) {
-    console.log('id 4 is inside the viewport')
-  } else {
-    console.log('id 4 is hidden')
+  //function to check if said sections are any distance from viewport.
+  function isInViewport(elem, section) {
+    if (elem.top >= -(window.innerHeight / 3) && elem.top <= (window.innerHeight / 2)) {
+      console.log(section,' is in viewport')
+    } 
   }
+  
+  //function to update element's reference from the top, on scroll.
+  //check if the new pos of elements are yet in viewport.
+  window.addEventListener('scroll', function () {
+    id1pos = id1.getBoundingClientRect()
+    id2pos = id2.getBoundingClientRect()
+    id3pos = id3.getBoundingClientRect()
+    id4pos = id4.getBoundingClientRect()
 
-
-  // function isInViewport(elem) {
-  //   const bounding = elem.getBoundingClientRect()
-  //   return (
-  //     bounding.top >= 0 &&
-  //     bounding.left >= 0 &&
-  //     bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-  //     bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
-  //   )
-  // }
-  // while (scroll) {
-  //   isInViewport(id1)
-  // }
-
+    isInViewport(id1pos, 'section 1')
+    isInViewport(id2pos, 'section 2')
+    isInViewport(id3pos, 'section 3')
+    isInViewport(id4pos, 'section 4')
+  })
 })

@@ -16,7 +16,7 @@ window.addEventListener('load', function () {
 
   //function to check if said sections are any distance from viewport.
   function isInViewport(elem, section, id) {
-    if (elem.top >= -(window.innerHeight / 3) && elem.top <= (window.innerHeight / 1.5)) {
+    if (elem.top >= -(window.innerHeight / 3 ) && elem.top <= (window.innerHeight / 1.5)) {
       console.log(section, ' is in viewport')
       id.classList.remove('stealth','fadeOut')
       id.classList.add('fadeIn','slow')

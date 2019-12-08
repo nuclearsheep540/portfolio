@@ -16,11 +16,11 @@ window.addEventListener('load', function () {
 
   //function to check if said sections are any distance from viewport.
   function isInViewport(elem, section) {
-    if (elem.top >= -(window.innerHeight / 3) && elem.top <= (window.innerHeight / 2)) {
+    if (elem.top >= -(window.innerHeight / 3) && elem.top <= (window.innerHeight / 3)) {
       console.log(section,' is in viewport')
     } 
   }
-  
+
   //function to update element's reference from the top, on scroll.
   //check if the new pos of elements are yet in viewport.
   window.addEventListener('scroll', function () {

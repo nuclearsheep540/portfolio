@@ -18,7 +18,6 @@ window.addEventListener('load', function () {
   function isInViewport(elem, navView, id) {
     if (elem.top < (window.innerHeight / 1.15)
     ) {
-      console.log(navView, elem.top)
       id.classList.remove('stealth','fadeOut')
       id.classList.add('fadeIn','slow')
       document.querySelector(`${navView}`).classList.add('navView','heartbeat')
@@ -39,7 +38,7 @@ window.addEventListener('load', function () {
     id2pos = id2.getBoundingClientRect()
     id3pos = id3.getBoundingClientRect()
     id4pos = id4.getBoundingClientRect()
-    console.log('id4:','bottom',id1pos.bottom,'|','top',id1pos.top,'window = ',window.innerHeight)
+    // console.log('id4:','bottom',id1pos.bottom,'|','top',id1pos.top,'window = ',window.innerHeight)
 
     isInViewport(id1pos, '.navView1', id1)
     isInViewport(id2pos, '.navView2', id2)

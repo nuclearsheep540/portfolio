@@ -16,12 +16,13 @@ window.addEventListener('load', function () {
 
   //function to check if said sections are any distance from viewport.
   function isInViewport(elem, navView, id) {
-    if (elem.top >= -(window.innerHeight / 3.5 ) && elem.top <= (window.innerHeight / 1.5)) {
-      // console.log(section, ' is in viewport')
+    if (elem.top < (window.innerHeight / 1.15)
+    ) {
+      console.log(navView, elem.top)
       id.classList.remove('stealth','fadeOut')
       id.classList.add('fadeIn','slow')
       document.querySelector(`${navView}`).classList.add('navView','heartbeat')
-    } else {
+    } else if (elem.bottom > (window.innerHeight / 1.0)){
       id.classList.remove('fadeIn','slow')
       id.classList.add('fadeOut')
       document.querySelector(`${navView}`).classList.remove('navView','heartbeat') 
@@ -38,6 +39,7 @@ window.addEventListener('load', function () {
     id2pos = id2.getBoundingClientRect()
     id3pos = id3.getBoundingClientRect()
     id4pos = id4.getBoundingClientRect()
+    console.log('id4:','bottom',id1pos.bottom,'|','top',id1pos.top,'window = ',window.innerHeight)
 
     isInViewport(id1pos, '.navView1', id1)
     isInViewport(id2pos, '.navView2', id2)

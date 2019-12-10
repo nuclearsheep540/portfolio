@@ -267,18 +267,20 @@ br {
   border-radius: 4px;
   background-color: white; */
 }
-.flex-wrap {
+.flex-wrapper {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
   margin-left: auto;
+  /* border: 4px solid gold; */
+  padding-bottom: 40px;
 }
 .flex-container {  
   transition: ease-in-out 0.5s;
   display: flex;
   flex-direction: row;
   height: inherit;
-  width: 60vw;
+  max-width: 70vw;
   min-height: 120px;
   min-width: 420px;
   /* border:1px solid blue; */
@@ -288,6 +290,7 @@ br {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+  border: 20px 0px;
 }
 .gridcell {
   min-height: 90px;
@@ -311,7 +314,7 @@ svg {
   margin: 8px;
 }
 .spacer {
-  min-height: 80px;
+  min-height: 100px;
 }
 .inViewport {
   font-size: x-large;
@@ -331,4 +334,40 @@ p.left {
 }
 .stealth {
   visibility: hidden;
+}
+div.column-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  flex-wrap: wrap;
+  max-width: 70vw;
+}
+div.flex-columns-3 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-width: 320px;
+  max-width: 320px;
+  min-height: 400px;
+  margin: 10px;
+  border: 1px solid red;
+  flex-wrap: wrap;
+}
+button.proj {
+  display: inline;
+  min-width: 100px;
+  margin: 4px;
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+}
+div.foot-columns {
+  display: flex;
+  flex-wrap: nowrap;
+  min-width: 120px;
+  max-width: 120px;
+  min-height: 120px;
+  margin: 10px;
+  border: 1px solid red;
+  flex-wrap: wrap;
 }

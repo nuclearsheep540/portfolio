@@ -182,7 +182,6 @@ template {
 
 body {
   background-color: white;
-  overflow: scroll;
 }
 html {
   scroll-behavior: smooth;
@@ -198,7 +197,7 @@ nav {
   display: flex;
   flex-direction: column;
   position: fixed;
-  left: 10px;
+  left: -10px;
   min-height: 65vh;
   max-width: 45px;
   /* border: 1px solid gold; */
@@ -233,6 +232,7 @@ br {
   margin: 0px 20px;
 }
 .logo {
+  transform: translate(20px, 5px);
   color: whitesmoke;
   font-family: 'Bebas Neue', cursive;
   font-size: xx-large;
@@ -300,11 +300,21 @@ br {
   min-height: 90px;
   max-height: 90px;
   min-width: 90px;
-  max-height: 90px;
+  max-width: 90px;
   /* border: 1px solid rgba(192, 192, 192, 0.2); */
   margin: 8px;
-  font-size: 80px;
+
 }
+img {
+  max-width: 90px;
+}
+footer img {
+  max-width: 170px;
+  height: 70px;
+  filter: brightness(100);
+  margin: auto;
+}
+
 svg {
   filter: grayscale(100%) ;
 }
@@ -325,8 +335,13 @@ svg {
   color: gold;
 }
 footer {
-  height: 30vh;
-  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 33vh;
+  min-width: 88vw;
   background-color: rgb(27, 29, 29);
 }
 p.left {
@@ -341,10 +356,10 @@ p.left {
 }
 .column-wrapper {
   display: flex;
-  justify-content: space-around;
-  margin: auto;
+  justify-content: center;
   flex-wrap: wrap;
   max-width: 88vw;
+  margin: auto;
 }
 .flex-columns-2 {
   flex-wrap: wrap;
@@ -368,12 +383,13 @@ p.proj {
 }
 div.foot-columns {
   display: flex;
+  justify-content: center;
   flex-wrap: nowrap;
   min-width: 120px;
   max-width: 120px;
   min-height: 120px;
-  margin: 10px;
-  border: 1px solid red;
+  margin: 20px;
+  /* border: 1px solid red; */
   flex-wrap: wrap;
 }
 

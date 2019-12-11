@@ -18,7 +18,7 @@ export default class Home extends React.Component {
       message: { //data required by the API to deliver an email
         to: 'matt.davey540@me.com',
         from: 'hello@jackalmedia.co.uk',
-        subject: '',
+        subject: 'You\'ve recieved a message from your website',
         textBody: 'This message was sent using the SocketLabs Node.js library!',
         htmlBody: '',
         messageType: 'basic'
@@ -28,30 +28,31 @@ export default class Home extends React.Component {
     //binds
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-  }
 
+  }
   //functions
+  
   handleSubmit(e) {
     e.preventDefault()
     console.log(this.sendData)
 
     const obj = {
       to: 'matt.davey540@me.com', //client's email address
-      from: 'hello@jackalmedia.co.uk', //dummy email address
-      subject: this.state.form.email,
+      from: this.state.form.email, //dummy email address
+      subject: 'You\'ve recieved a message from your website',
       textBody: this.state.form.message,
       htmlBody: `
-      <html>
-      From: 
-      ${this.state.form.firstname}, ${this.state.form.lastname}<br />
-      Contact:<br />
-      ${this.state.form.number}<br />
-      Email:<br />
-      ${this.state.form.email}<br />
-      Message:<br />
-      ${this.state.form.message}<br />
-      </html>
-      `,
+    <html>
+    From: 
+    ${this.state.form.firstname}, ${this.state.form.lastname}<br />
+    Contact:<br />
+    ${this.state.form.number}<br />
+    Email:<br />
+    ${this.state.form.email}<br />
+    Message:<br />
+    ${this.state.form.message.replace('\n\n', '<br /> <br />').replace('\n', '<br />')}<br />
+    </html>
+    `,
       messageType: 'basic'
     }
 
@@ -60,9 +61,17 @@ export default class Home extends React.Component {
       .catch(err => console.log(err))
   }
   handleChange({ target: { name, value } }) {
-    //from data from front end
     const form = { ...this.state.form, [name]: value }
     this.setState({ form })
+
+    var text = this.state.form.message
+    var match = /\r|\n/.exec(text)
+    if (match) {
+      console.log('whitepsace!')
+    }
+    // ${this.state.form.message.replace(/\r|\n/.exec(this.state.form.message), '<br />')}<br />
+
+    console.log(this.state.form.message)
   }
 
   render() {
@@ -401,10 +410,10 @@ export default class Home extends React.Component {
                 <p className="proj">My first project was a cell-based JavaScript game, combining concepts from battleships as well
                   as minesweeper. I built a game full of game-logic, conditional checks, procedurally generated objects, and a
                   smooth user experience across the game. The problem I enjoyed solving the most on this project was storing
-                  ship-tiles in arrays and checking tileset data before generating to ensuring ships generated on unique tiles. 
+                  ship-tiles in arrays and checking tileset data before generating to ensuring ships generated on unique tiles.
                 </p>
-                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
-                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>
+                <button className='proj'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
+                <button className='proj'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
               </div>
 
               <div className='flex-columns-2'>
@@ -414,8 +423,8 @@ export default class Home extends React.Component {
                   allowing a user to identify local gigs to their position for the current day and navigate around the map.
                   Implementing MapboxGL was interesting, we used Uber’s library and viewport component to allow for easy interaction with the map.
                 </p>
-                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
-                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>
+                <button className='proj'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
+                <button className='proj'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
 
               </div>
 
@@ -427,8 +436,8 @@ export default class Home extends React.Component {
                   personal profile, which enabled each other to recognise what languages & frameworks each other were familiar
                   with. We used MongoDB to store user models and ‘requests’ models, and Mongoose parsed the data between all CRUD routes to our own built restful API.
                 </p>
-                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
-                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>
+                <button className='proj'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
+                <button className='proj'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
 
               </div>
 
@@ -440,14 +449,14 @@ export default class Home extends React.Component {
                   backend we were able to handle all user authentication and the large requests of data from the spotify user.
                   We used Django to manage serialization and processing of user data to our own postgreSQL database enabling
                   us to build all quiz data with our local instance of data.</p>
-                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
-                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>              
-              
+                <button className='proj'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
+                <button className='proj'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
+
               </div>
 
             </div>
           </div>
-          
+
         </div>
 
         <div className="spacer"></div>

@@ -348,137 +348,109 @@ export default class Home extends React.Component {
                 </div>
 
                 <div className='gridcell'>
-
                   <img src='https://i.imgur.com/m7teeIW.png'></img>
-
-                </div>
-
-
-
-                <div className='gridcell'>
-                  <image src='https://image.flaticon.com/icons/svg/688/688118.svg'></image>
                 </div>
 
                 <div className='gridcell'>
-                  <image src='https://image.flaticon.com/icons/svg/688/688113.svg'></image>
+                  <img src='https://image.flaticon.com/icons/svg/688/688118.svg'></img>
                 </div>
 
                 <div className='gridcell'>
-                  <image src='https://image.flaticon.com/icons/svg/688/688114.svg'></image>
+                  <img src='https://image.flaticon.com/icons/svg/688/688113.svg'></img>
                 </div>
 
                 <div className='gridcell'>
-                  <image src='https://image.flaticon.com/icons/svg/688/688119.svg'></image>
+                  <img src='https://image.flaticon.com/icons/svg/688/688114.svg'></img>
                 </div>
 
                 <div className='gridcell'>
-                  <image src='https://image.flaticon.com/icons/svg/94/94219.svg'></image>
+                  <img src='https://image.flaticon.com/icons/svg/688/688119.svg'></img>
                 </div>
 
                 <div className='gridcell'>
-                  <image src='https://image.flaticon.com/icons/svg/831/831393.svg'></image>
+                  <img src='https://image.flaticon.com/icons/svg/94/94219.svg'></img>
+                </div>
+
+                <div className='gridcell'>
+                  <img src='https://image.flaticon.com/icons/svg/831/831393.svg'></img>
                 </div>
 
                 <div className='gridcell'>
                   <img alt='open broadcaster software' src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/79db8688-58ac-41dc-aea8-cc2422e185c7/d60hs9x-87042b72-d70f-4eaf-9867-7a4fffd4f1f0.png/v1/fill/w_256,h_256,strp/open_broadcaster_software___icon_by_j1mb091_d60hs9x-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjU2IiwicGF0aCI6IlwvZlwvNzlkYjg2ODgtNThhYy00MWRjLWFlYTgtY2MyNDIyZTE4NWM3XC9kNjBoczl4LTg3MDQyYjcyLWQ3MGYtNGVhZi05ODY3LTdhNGZmZmQ0ZjFmMC5wbmciLCJ3aWR0aCI6Ijw9MjU2In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.o1dfPMuxQ53r14TJbI0UYrkU8TbZMVv5KKxQgCzjUhk'></img>
                 </div>
-
-
               </div>
-
-
             </section>
 
           </div>
         </div>
 
-
         <div className="spacer"></div>
-
 
         <div className="flex-wrapper middle-center animated stealth" id='2'>
 
           <section className="middle-center">
             <h2>Projects</h2>
           </section>
+
           <div className='flex-container s16'>
-
-
-
-
-
-
-
-
             <div className='column-wrapper'>
 
               <div className='flex-columns-2'>
-
                 <h3>Deep Sea Battle: Shots Fired!</h3>
                 <p>JavaScript, HTML5, CSS3</p>
                 <p className="proj">My first project was a cell-based JavaScript game, combining concepts from battleships as well
                   as minesweeper. I built a game full of game-logic, conditional checks, procedurally generated objects, and a
                   smooth user experience across the game. The problem I enjoyed solving the most on this project was storing
-                  ship-tiles in arrays and checking tileset data before generating to ensuring ships generated on unique
-            tiles. </p>
-                <a href='https://github.com/nuclearsheep540/deepsea' target="_blank"><button className='proj'>Read
-              More</button></a>
-                <a href='https://nuclearsheep540.github.io/deepsea/' target="_blank"><button className='proj'>Launch</button></a>
-
+                  ship-tiles in arrays and checking tileset data before generating to ensuring ships generated on unique tiles. 
+                </p>
+                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
+                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>
               </div>
 
               <div className='flex-columns-2'>
-
                 <h3>Gig-on-a-map</h3>
                 <p>React JS, Express: Node.js, RESTful API</p>
                 <p className="proj">During this hackathon, I focussed on getting MapboxGL to display music event data as markers,
                   allowing a user to identify local gigs to their position for the current day and navigate around the map.
-                  Implementing MapboxGL was interesting, we used Uber’s library and viewport component to allow for easy
-            interaction with the map.</p>
-                <a href='https://github.com/nuclearsheep540/deepsea' target="_blank"><button className='proj'>Read
-              More</button></a>
-                <a href='https://nuclearsheep540.github.io/deepsea/' target="_blank"><button className='proj'>Launch</button></a>
-
-              </div>
-
-              <div className='flex-columns-2'>
-
-                <h3>Skill Swap</h3>
-                <p>React JS, Express: Node.js, MongoDB & Mongoose</p>
-                <p className="proj">Skill Swap is a social platform to enable new and junior developers to meet and support each
-                  other throughout their early career. Our objective was to build a website that allowed users to build a
-                  personal profile, which enabled each other to recognise what languages & frameworks each other were familiar
-                  with. We used MongoDB to store user models and ‘requests’ models, and Mongoose parsed the data between all
-            CRUD routes to our own built restful API.</p>
-                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read
-              More</button>
+                  Implementing MapboxGL was interesting, we used Uber’s library and viewport component to allow for easy interaction with the map.
+                </p>
+                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
                 <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>
 
               </div>
 
               <div className='flex-columns-2'>
+                <h3>Skill Swap</h3>
+                <p>React JS, Express: Node.js, MongoDB & Mongoose</p>
+                <p className="proj">Skill Swap is a social platform to enable new and junior developers to meet and support each
+                  other throughout their early career. Our objective was to build a website that allowed users to build a
+                  personal profile, which enabled each other to recognise what languages & frameworks each other were familiar
+                  with. We used MongoDB to store user models and ‘requests’ models, and Mongoose parsed the data between all CRUD routes to our own built restful API.
+                </p>
+                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
+                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>
 
+              </div>
+
+              <div className='flex-columns-2'>
                 <h3>Whatify</h3>
                 <p>React JS, Express: Node.js, Pythond, Django, postgreSQL</p>
                 <p className="proj">Our main focus for this app was integrating open authentication with Spotify to process user
                   listening data, curating randomised quizzes tailored to the user’s listening experience. Using a Python
                   backend we were able to handle all user authentication and the large requests of data from the spotify user.
                   We used Django to manage serialization and processing of user data to our own postgreSQL database enabling
-            us to build all quiz data with our local instance of data.</p>
-                <a href='https://github.com/nuclearsheep540/deepsea' target="_blank"><button className='proj'>Read
-              More</button></a>
-                <a href='https://nuclearsheep540.github.io/deepsea/' target="_blank"><button className='proj'>Launch</button></a>
-
+                  us to build all quiz data with our local instance of data.</p>
+                <button onClick={window.open('https://github.com/nuclearsheep540/deepsea', '_blank')} className='proj'>Read More</button>
+                <button onClick={window.open('https://nuclearsheep540.github.io/deepsea/', '_blank')} className='proj'>Launch</button>              
+              
               </div>
-
-
 
             </div>
           </div>
+          
         </div>
 
         <div className="spacer"></div>
-
 
         <div className="flex-wrapper middle-center animated stealth" id='1'>
           <div className='flex-container s16'>
@@ -494,12 +466,8 @@ export default class Home extends React.Component {
                 form={this.state.form}
               />
 
-
             </section>
           </div>
-
-
-
         </div>
 
         <div className="spacer"></div>
@@ -507,25 +475,19 @@ export default class Home extends React.Component {
         <footer>
           <div className="spacer"></div>
 
-
           <div className='foot-columns'>
-
             <img src='https://image.flaticon.com/icons/svg/174/174857.svg' />
           </div>
 
-
           <div className='foot-columns'>
-
             <img src='https://i.imgur.com/5Rq6M0E.png' />
           </div>
 
           <div className='foot-columns'>
-
             <img src='https://image.flaticon.com/icons/svg/174/174855.svg' />
           </div>
 
           <div className='foot-columns'>
-
             <img src='https://image.flaticon.com/icons/svg/174/174877.svg' />
           </div>
 
@@ -534,17 +496,12 @@ export default class Home extends React.Component {
           </div>
 
           <div className='foot-columns'>
-
             <img src='https://images.squarespace-cdn.com/content/58c91a93be65940fb782cc81/1508324348192-JM1V5MQZ2MKEBWHMY733/Jackal_Logo.png?format=1500w&content-type=image%2Fpng' />
           </div>
-
-
-
 
         </footer>
       </main>
 
     )
   }
-
 }

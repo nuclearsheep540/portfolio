@@ -1,0 +1,243 @@
+/* Bebas Neue */
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+body {
+  background-color: white;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+nav {
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: -10px;
+  min-height: 65vh;
+  max-width: 45px;
+  /* border: 1px solid gold; */
+  margin: 0px;
+}
+ul {
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  transform: rotate(270deg);
+  position: fixed;
+  bottom: 33%;
+  display: flex;
+  list-style: none;
+  color: red;
+  max-width: 20px;
+  max-height: 20px;
+  margin: auto;
+}
+li {
+  margin: 15px;
+  text-decoration: none;
+}
+br {
+  min-height: 300px;
+}
+.navView{
+  font-size: 130%;
+  font-weight: 800;
+  transition: linear 0.15s;
+  margin: 0px 20px;
+}
+.logo {
+  transform: translate(20px, 5px);
+  color: whitesmoke;
+  font-family: 'Bebas Neue', cursive;
+  font-size: xx-large;
+}
+.full-bleed {
+  padding: 0px;
+  margin: 0px;
+  width: 100vw;
+  min-width: 480px;
+  height: 100%;
+  /* border: 4px solid greenyellow; */
+  background: whitesmoke;
+}
+.hero {
+  background-color: rgb(27, 29, 29);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100vw;
+  height: 100vh;
+  min-width: 480px;
+  /* border: 1px solid green; */
+}
+.middle-center {
+  position: relative;
+  height: fit-content;
+  width: fit-content;
+  margin: auto;
+  /* border: 1px solid silver;
+  border-radius: 4px;
+  background-color: white; */
+}
+.text-c{
+  text-align: center;
+}
+.flex-wrapper {
+  margin-top: 40px;
+  display: flex;
+  max-width: 88vw;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: auto;
+  /* border: 4px solid gold; */
+  padding-bottom: 40px;
+}
+.flex-container {  
+  transition: ease-in-out 0.5s;
+  display: flex;
+  flex-direction: row;
+  height: inherit;
+  max-width: 88vw;
+  min-height: 120px;
+  min-width: 420px;
+  /* border:1px solid blue; */
+}
+.gridbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: 20px 0px;
+}
+.gridcell {
+  min-height: 90px;
+  max-height: 90px;
+  min-width: 90px;
+  max-width: 90px;
+  /* border: 1px solid rgba(192, 192, 192, 0.2); */
+  margin: 8px;
+
+}
+img {
+  max-width: 90px;
+}
+footer img {
+  max-width: 170px;
+  height: 70px;
+  filter: brightness(100);
+  margin: auto;
+}
+
+svg {
+  filter: grayscale(100%) ;
+}
+.s4 {
+  padding: 4px;
+  margin: 2px;
+  margin-bottom: 30px;
+}
+.s16 {
+  padding: 8px;
+  margin: 8px;
+}
+.spacer {
+  min-height: 100px;
+}
+.inViewport {
+  font-size: x-large;
+  color: gold;
+}
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 33vh;
+  min-width: 88vw;
+  background-color: rgb(27, 29, 29);
+}
+p.left {
+  color: white;
+  text-align: left;
+}
+.hidden {
+  display: none;
+}
+.stealth {
+  visibility: hidden;
+}
+.column-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 88vw;
+  margin: auto;
+}
+.flex-columns-2 {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 420px;
+  border: 1px solid silver;
+  border-radius: 2px;
+  margin: 20px;
+
+}
+button.proj {
+  display: inline;
+  min-width: 100px;
+  /* margin: 4px; */
+  background-color: black;
+  color: white;
+  border-radius: 2px;
+}
+p.proj {
+  min-height: 300px;
+}
+div.foot-columns {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  min-width: 120px;
+  max-width: 120px;
+  min-height: 120px;
+  margin: 20px;
+  /* border: 1px solid red; */
+  flex-wrap: wrap;
+}
+
+/* FORMS */
+form {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* min-width: 88vw; */
+  min-width: 420px;
+  margin: 20px;
+}
+input, textarea {
+  margin-bottom:20px;
+  border-radius: 2px;
+  border-style: none;
+  min-height: 30px;
+  width: 100%;
+  resize: none;
+}
+.field {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+input::placeholder {
+  color: silver;
+}

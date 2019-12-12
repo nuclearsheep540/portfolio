@@ -2,15 +2,6 @@
 
   // stringify all input, select, and textaeas in a form
 
-  var form = document.getElementById('form-contact')
-
-  // form.addEventListener('submit', function (e) {
-  //   e.preventDefault()
-  //   setTimeout(() => {
-  //     form.innerHTML = '<div class="middle-center"><h1>Your message has been sent</h1><div>'
-  //   }, 500)
-  // })
-
   function toJSONString(form) {
     var obj = {}
     // grab all of the inputs, selects, textareas in a specified form
@@ -30,7 +21,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     // targets a specific form
-    
+    var form = document.getElementById('form-contact')
 
     // submit event listener
     form.addEventListener('submit', function (e) {
@@ -47,7 +38,7 @@
       // set the header
       // this lets the server know where/how to expect your data
       xhr.setRequestHeader('Content-Type', 'application/json')
-      xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest')
+      xhr.setRequestHeader('X-Requested-With','XMLHttpRequest')
 
       // this is how form data looks like when you send it with the attributes `action="POST"` on your form
       var formData = json
@@ -63,6 +54,8 @@
         // sends form data
       },
       xhr.send(formData)
+      // form.reset()
+      form.innerHTML = '<div class="middle-center"> Message sent! </div>'
     })
   })
 })()

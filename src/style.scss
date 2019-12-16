@@ -1,3 +1,5 @@
+/* FONT IMPORTS */
+
 /* Bebas Neue */
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
@@ -218,26 +220,42 @@ div.foot-columns {
 form {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  /* min-width: 88vw; */
-  min-width: 420px;
-  margin: 20px;
+  max-width: 370px;
+  ::placeholder {
+    color: silver;
+  }
+  label{
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    // visibility: hidden;
+  }
+  textarea{
+    resize: none;
+    height: 90px;
+  }
+  div {
+    margin-bottom: 10px;
+  }
+  input {
+    border-radius: 4px;
+  }
+  input#email, textarea, button {
+    max-width: 360px;
+    min-width: 360px;
+    padding: 0px;
+    border: 0px;
+    min-height: 40px;
+    margin-left: 10px;
+  }
+  
+  input#name{
+    min-width: 175px;
+    padding: 0px;
+    border: 0px;
+    min-height: 40px;
+    margin-left: 10px;
+  }
 }
-input, textarea {
-  margin-bottom:20px;
-  border-radius: 2px;
-  border-style: none;
-  min-height: 30px;
-  width: 100%;
-  resize: none;
-}
-.field {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
-}
-input::placeholder {
-  color: silver;
-}
+
+

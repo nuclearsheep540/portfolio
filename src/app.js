@@ -4,8 +4,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 import Home from './components/common/Home'
 
-import './style.scss'
 import 'normalize.css'
+import './style.scss'
 import 'animate.css'
 
 const App = () => (

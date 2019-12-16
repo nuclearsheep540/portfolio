@@ -73,15 +73,10 @@
       const formData = json
 
       var xhr = new window.XMLHttpRequest()
-      xhr.withCredentials = true
-
-      xhr.addEventListener('readystatechange', function () {
-        if (this.readyState === this.DONE) {
-          console.log(this.responseText)
-        }
-      })
-
+      
+      xhr.onreadystatechange = function () {}
       xhr.open('POST', 'http://getdavey.work/proxy.html')
+      xhr.withCredentials = true
       xhr.setRequestHeader('content-type', 'application/json')
 
       xhr.send(formData)

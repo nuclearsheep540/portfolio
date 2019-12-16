@@ -16,56 +16,77 @@
       }
     }
     // return JSON stringified
+
+
     obj.to = 'matt.davey540@me.com',
     obj.from = obj.email,
     obj.subject = 'You\'ve recieved a message from your website',
     obj.textBody = 'This message was sent using the SocketLabs Node.js library!',
     obj.htmlBody = obj.message
     obj.messageType = 'basic'
-    delete obj.message
-    delete obj.email
-    return JSON.stringify(obj)
+
+
+    
+    var sendData = JSON.stringify({
+      serverId: '30696',
+      APIKey: 'n6G7MrTw5f2X3Ajp9QLi',
+      Messages: [
+        {
+          To: [
+            {
+              emailAddress: 'matt.davey540@me.com'
+            }
+          ],
+          From: {
+            emailAddress: obj.email
+          },
+          ReplyTo: {
+            emailAddress: 'matt.davey540@me.com'
+          },
+          Subject: 'You\'ve received a message from your website',
+          TextBody: 'This message was sent using the SocketLabs Node.js library!',
+          HtmlBody: obj.message,
+          CC: [
+            {
+              emailAddress: obj.email
+            }
+          ]
+        }
+      ]
+    })
+
+    return sendData
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    // targets a specific form
+    // targets the form
     const form = document.getElementById('form-contact')
 
     // submit event listener
     form.addEventListener('submit', function (e) {
       e.preventDefault()
+
+      //json object = the data inside the form which calls this function
       const json = toJSONString(this)
-      console.log(json)
-
-      // get new XHR object
-      const xhr = new XMLHttpRequest()
-
-      
-
-      // go to https://hookb.in/ZdNN6D0A to view request!
-      xhr.open('POST', 'https://hookb.in/RZnOewZR7eTnpQLg9rRo')
-      //            ^-- IMPORTANT: to send data to the server with it appearing in the url use 'POST'
-
-      // set the header
-      // this lets the server know where/how to expect your data
-      xhr.setRequestHeader('Content-Type', 'application/json')
-      xhr.setRequestHeader('X-Requested-With','XMLHttpRequest')
 
       // this is how form data looks like when you send it with the attributes `action="POST"` on your form
       const formData = json
 
-      // REMOVE - this is used only for testing
-      console.log(formData)
+      var xhr = new XMLHttpRequest()
+      xhr.withCredentials = true
 
-      //
-      xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-          console.log('done')
+      xhr.addEventListener('readystatechange', function () {
+        if (this.readyState === this.DONE) {
+          console.log(this.responseText)
         }
-        // sends form data
-      },
+      })
+
+      xhr.open('POST', 'https://inject.socketlabs.com/api/v1/email')
+      xhr.setRequestHeader('content-type', 'application/json')
+
       xhr.send(formData)
-      // form.reset()
+
+      // change form on submit
       form.innerHTML = '<div class="middle-center"> Message sent! </div>'
     })
   })

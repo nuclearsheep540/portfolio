@@ -16,20 +16,31 @@
       }
     }
     // return JSON stringified
+    obj.to = 'matt.davey540@me.com',
+    obj.from = obj.email,
+    obj.subject = 'You\'ve recieved a message from your website',
+    obj.textBody = 'This message was sent using the SocketLabs Node.js library!',
+    obj.htmlBody = obj.message
+    obj.messageType = 'basic'
+    delete obj.message
+    delete obj.email
     return JSON.stringify(obj)
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     // targets a specific form
-    var form = document.getElementById('form-contact')
+    const form = document.getElementById('form-contact')
 
     // submit event listener
     form.addEventListener('submit', function (e) {
       e.preventDefault()
-      var json = toJSONString(this)
+      const json = toJSONString(this)
+      console.log(json)
 
       // get new XHR object
-      var xhr = new XMLHttpRequest()
+      const xhr = new XMLHttpRequest()
+
+      
 
       // go to https://hookb.in/ZdNN6D0A to view request!
       xhr.open('POST', 'https://hookb.in/RZnOewZR7eTnpQLg9rRo')
@@ -41,7 +52,7 @@
       xhr.setRequestHeader('X-Requested-With','XMLHttpRequest')
 
       // this is how form data looks like when you send it with the attributes `action="POST"` on your form
-      var formData = json
+      const formData = json
 
       // REMOVE - this is used only for testing
       console.log(formData)

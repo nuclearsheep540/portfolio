@@ -72,7 +72,7 @@
       // this is how form data looks like when you send it with the attributes `action="POST"` on your form
       const formData = json
 
-      var xhr = new XMLHttpRequest()
+      var xhr = new window.XMLHttpRequest()
       xhr.withCredentials = true
 
       xhr.addEventListener('readystatechange', function () {

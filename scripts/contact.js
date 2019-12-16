@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 (function () {
 
   // stringify all input, select, and textaeas in a form
@@ -72,14 +73,16 @@
       // this is how form data looks like when you send it with the attributes `action="POST"` on your form
       const formData = json
 
-      var xhr = new window.XMLHttpRequest()
-      
-      xhr.onreadystatechange = function () {}
-      xhr.open('POST', 'http://getdavey.work/proxy.html')
+      var xhr = new XMLHttpRequest()
       xhr.withCredentials = true
-      xhr.setRequestHeader('content-type', 'application/json')
-
+      // xhr.setRequestHeader('content-type', 'application/json')
+      
+      xhr.open('GET', 'http://getdavey.work/proxy.html')
+      xhr.onreadystatechange = function (e) {
+        if (xhr.readyState === 4) console.log("got result: ", xhr.responseText);
+      }
       xhr.send(formData)
+
 
       // change form on submit
       form.innerHTML = '<div class="middle-center"> Message sent! </div>'

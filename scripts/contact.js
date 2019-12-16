@@ -81,7 +81,7 @@
         }
       })
 
-      xhr.open('POST', 'https://inject.socketlabs.com/api/v1/email')
+      xhr.open('POST', 'http://getdavey.work/proxy.html')
       xhr.setRequestHeader('content-type', 'application/json')
 
       xhr.send(formData)

@@ -1,45 +1,97 @@
-/* FONT IMPORTS */
+//     SCHEME
+// -----------
 
-/* Bebas Neue */
+$light: #E3F8FF;
+$tech: #00A4B8;
+$dark: #213135;
+
+//     PARTIAL
+// -----------
+@import './nav_arrow.scss';
+
+//        FONT
+// -----------
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
 
+// LANDING PAGE
+// -----------
+.hero {
+  position: fixed;
+  top: 0px;
+  background-color:rgba(0, 0, 0, 0.5);
+  color:$light;
+  width: 115vw;
+  height: 115vh;
+  overflow-x: hidden;
+  z-index: 2;
+}
+.hero-vid {
+  width: 115vw;
+  height: 115vh;
+  position: fixed;
+  margin: auto;
+  top: -15vh;
+  left: -15vw;
+  z-index: -2;
+}
+.logo {
+  transform: translate(20px, 5px);
+  // color: whitesmoke;
+  font-family: 'Bebas Neue', cursive;
+  font-size: xx-large;
+}
+
+// GLOBAL ELEM
+// -----------
 body {
-  background-color: white;
+  background-color: whitesmoke;
 }
 html {
   scroll-behavior: smooth;
 }
-
 @media screen and (prefers-reduced-motion: reduce) {
-	html {
-		scroll-behavior: auto;
-	}
+  html {
+    scroll-behavior: auto;
+  }
 }
-nav {
-  z-index: 9999;
+img {
+  max-width: 90px;
+}
+footer img {
+  max-width: 170px;
+  height: 70px;
+  filter: brightness(100);
+  margin: auto;
+}
+svg {
+  filter: grayscale(100%) ;
+}
+footer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  overflow: hidden;
+  height: 33vh;
+  min-width: 88vw;
+  background-color: rgb(27, 29, 29);
+}
+.hidden {
+  display: none;
+}
+.stealth {
+  visibility: hidden;
+}
+
+//         NAV
+// -----------
+nav {
+  display: flex;
+  flex-direction: row;
   position: fixed;
-  left: -10px;
-  min-height: 65vh;
-  max-width: 45px;
-  /* border: 1px solid gold; */
-  margin: 0px;
 }
 ul {
-  -webkit-transform: rotate(270deg);
-  -moz-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  transform: rotate(270deg);
-  position: fixed;
-  bottom: 33%;
-  display: flex;
   list-style: none;
-  color: red;
-  max-width: 20px;
-  max-height: 20px;
-  margin: auto;
 }
 li {
   margin: 15px;
@@ -53,41 +105,16 @@ br {
   font-weight: 800;
   transition: linear 0.15s;
   margin: 0px 20px;
+  transform: translateX(20px);
 }
-.logo {
-  transform: translate(20px, 5px);
-  color: whitesmoke;
-  font-family: 'Bebas Neue', cursive;
-  font-size: xx-large;
-}
-.full-bleed {
-  padding: 0px;
-  margin: 0px;
-  width: 100vw;
-  min-width: 480px;
-  height: 100%;
-  /* border: 4px solid greenyellow; */
-  background: whitesmoke;
-}
-.hero {
-  background-color: rgb(27, 29, 29);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 100vw;
-  height: 100vh;
-  min-width: 480px;
-  /* border: 1px solid green; */
-}
+
+//        FLEX
+// -----------
 .middle-center {
   position: relative;
   height: fit-content;
   width: fit-content;
   margin: auto;
-  /* border: 1px solid silver;
-  border-radius: 4px;
-  background-color: white; */
 }
 .text-c{
   text-align: center;
@@ -99,7 +126,6 @@ br {
   justify-content: center;
   flex-direction: column;
   margin-left: auto;
-  /* border: 4px solid gold; */
   padding-bottom: 40px;
 }
 .flex-container {  
@@ -110,7 +136,6 @@ br {
   max-width: 88vw;
   min-height: 120px;
   min-width: 420px;
-  /* border:1px solid blue; */
 }
 .gridbox {
   display: flex;
@@ -124,22 +149,7 @@ br {
   max-height: 90px;
   min-width: 90px;
   max-width: 90px;
-  /* border: 1px solid rgba(192, 192, 192, 0.2); */
   margin: 8px;
-
-}
-img {
-  max-width: 90px;
-}
-footer img {
-  max-width: 170px;
-  height: 70px;
-  filter: brightness(100);
-  margin: auto;
-}
-
-svg {
-  filter: grayscale(100%) ;
 }
 .s4 {
   padding: 4px;
@@ -157,25 +167,9 @@ svg {
   font-size: x-large;
   color: gold;
 }
-footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  overflow: hidden;
-  height: 33vh;
-  min-width: 88vw;
-  background-color: rgb(27, 29, 29);
-}
 p.left {
   color: white;
   text-align: left;
-}
-.hidden {
-  display: none;
-}
-.stealth {
-  visibility: hidden;
 }
 .column-wrapper {
   display: flex;
@@ -196,7 +190,6 @@ p.left {
 button.proj {
   display: inline;
   min-width: 100px;
-  /* margin: 4px; */
   background-color: black;
   color: white;
   border-radius: 2px;
@@ -212,11 +205,11 @@ div.foot-columns {
   max-width: 120px;
   min-height: 120px;
   margin: 20px;
-  /* border: 1px solid red; */
   flex-wrap: wrap;
 }
 
-/* FORMS */
+//        FORM
+// -----------
 form {
   display: flex;
   flex-direction: column;
@@ -248,7 +241,6 @@ form {
     min-height: 40px;
     margin-left: 10px;
   }
-  
   input#name{
     min-width: 175px;
     padding: 0px;

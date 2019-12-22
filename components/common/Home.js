@@ -78,7 +78,7 @@ export default class Home extends React.Component {
     console.log(this.state)
     return (
 
-      <main className="full-bleed">
+      <main className=''>
 
         <nav>
           <div className="logo">Matt Davey.</div>

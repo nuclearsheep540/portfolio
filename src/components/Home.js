@@ -2,10 +2,12 @@ import React from 'react'
 import ContactForm from './common/ContactForm'
 import axios from 'axios'
 
+import '../viewport'
+
+
 export default class Home extends React.Component {
   constructor() {
     super()
-
     this.state = {
       form: { //data from the front end, collected from the form
         firstname: '',
@@ -25,17 +27,19 @@ export default class Home extends React.Component {
       }
     }
 
-    //binds
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
 
-  }
-  //functions
   
+  }
+  componentDidMount() {
+    document.getElementById('a4').classList.remove('stealth','fadeOut')
+    document.getElementById('a4').classList.add('fadeIn','slow')
+  }
+
   handleSubmit(e) {
     e.preventDefault()
-    console.log(this.sendData)
-
+    //formatting for SocketLabs object
     const obj = {
       to: 'matt.davey540@me.com', //client's email address
       from: this.state.form.email, //dummy email address
@@ -55,11 +59,12 @@ export default class Home extends React.Component {
     `,
       messageType: 'basic'
     }
-
+    //post
     axios.post('api/contact', obj)
       .then(res => console.log(res))
       .catch(err => console.log(err))
   }
+
   handleChange({ target: { name, value } }) {
     const form = { ...this.state.form, [name]: value }
     this.setState({ form })
@@ -75,33 +80,23 @@ export default class Home extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+    if (!this.state) return null
     return (
 
-      <main className="full-bleed">
+      <main className={`${this.props.history.action === 'PUSH' ? 'animated fadeInRight' : 'full-bleed'}`}>
 
         <nav>
-          <div className="logo">Matt Davey.</div>
           <ul>
-            <li><a href='#1' className='animated navView1'>Contact</a></li>
-            <li><a href='#2' className='animated navView2'>Projects</a></li>
-            <li><a href='#3' className='animated navView3'>Skills</a></li>
-            <li><a href='#4' className='animated navView4'>Me</a></li>
+            <li><a href='#a4' className='animated navView4'>Me</a></li>
+            <li><a href='#a3' className='animated navView3'>Skills</a></li>
+            <li><a href='#a2' className='animated navView2'>Projects</a></li>
+            <li><a href='#a1' className='animated navView1'>Contact</a></li>
           </ul>
         </nav>
 
-
-        <div className='hero'>
-          <div className='middle-center logo'>
-            <h1>Matt Davey</h1>
-            <h2>Full Stack Developer</h2>
-          </div>
-        </div>
-
         <div className="spacer"></div>
 
-
-        <div className="flex-wrapper middle-center animated stealth" id='4'>
+        <div className="flex-wrapper middle-center animated stealth" id='a4'>
           <div className='flex-container s16'>
             <section className="middle-center">
               <h2>Section 4</h2>
@@ -127,9 +122,7 @@ export default class Home extends React.Component {
 
         <div className="spacer"></div>
 
-
-        <div className="flex-wrapper middle-center animated stealth" id='3'>
-
+        <div className="flex-wrapper middle-center animated stealth" id='a3'>
           <div className='flex-container s16'>
             <section className="middle-center">
               <h2>Technologies</h2>
@@ -395,7 +388,7 @@ export default class Home extends React.Component {
 
         <div className="spacer"></div>
 
-        <div className="flex-wrapper middle-center animated stealth" id='2'>
+        <div className="flex-wrapper middle-center animated stealth" id='a2'>
 
           <section className="middle-center">
             <h2>Projects</h2>
@@ -461,7 +454,7 @@ export default class Home extends React.Component {
 
         <div className="spacer"></div>
 
-        <div className="flex-wrapper middle-center animated stealth" id='1'>
+        <div className="flex-wrapper middle-center animated stealth" id='a1'>
           <div className='flex-container s16'>
             <section className="middle-center">
 
@@ -479,11 +472,10 @@ export default class Home extends React.Component {
           </div>
         </div>
 
-        <div className="spacer"></div>
+        <div className='spacer'></div>
+        <div className='spacer'></div>
 
         <footer>
-          <div className="spacer"></div>
-
           <div className='foot-columns'>
             <img src='https://image.flaticon.com/icons/svg/174/174857.svg' />
           </div>
@@ -507,7 +499,6 @@ export default class Home extends React.Component {
           <div className='foot-columns'>
             <img src='https://images.squarespace-cdn.com/content/58c91a93be65940fb782cc81/1508324348192-JM1V5MQZ2MKEBWHMY733/Jackal_Logo.png?format=1500w&content-type=image%2Fpng' />
           </div>
-
         </footer>
       </main>
 

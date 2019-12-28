@@ -1,62 +1,51 @@
 import React from 'react'
 
-const ContactForm = ({ handleSubmit, handleChange, form }) => {
+const ContactForm = ({ search, formStage, handleSubmit, handleChange, form }) => {
   return (
-    <form onSubmit={handleSubmit} className=''>
+    <form onSubmit={handleSubmit} className={`${formStage > 0 ? 'animated slideInDown fast' : 'animated slideOutUp'}`}>
 
-      <div>
-        <label name="name" type='text'>Name</label>
+      <div className={`${formStage > 0 ? 'animated slideInDown fast' : 'stealth'}`}>
+        <label>booting up contact.exe ...</label><br></br>
+        <label className={`${formStage > 0 ? 'boot' : 'stealth'}`}>~/contact/name: </label>
         <input
-          id='name'
-          placeholder='First Name'
+          id='form1'
           type='text'
           name='firstname'
           value={form.firstname}
           onChange={handleChange}
-        >
-        </input>
-
-        <input
-          id='name'
-          placeholder='Last Name'
-          type='text'
-          name='lastname'
-          value={form.lastname}
-          onChange={handleChange}
+          onKeyDown={search}
         >
         </input>
       </div>
 
-
-
-      <div className=''>
-        <label name="email" type='text'>Email Address</label>
+      <div className={`${formStage > 1 ? '' : 'stealth'}`}>
+        <label>~/contact/email: </label>
         <input
-          id='email'
-          className=''
-          placeholder='Your email address'
-          type='email'
+          id='form2'
+          type='text'
           name='email'
           value={form.email}
           onChange={handleChange}
+          onKeyDown={search}
         >
         </input>
       </div>
 
-      <div className=''>
-        <label name="message" type='text'>Message</label>
-        <textarea
-          className=''
-          placeholder='Your message'
-          type='textarea'
+      <div className={`${formStage > 2 ? '' : 'stealth'}`}>
+        <label>~/contact/message: </label>
+        <input
+          id='form3'
+          type='text'
           name='message'
           value={form.message}
           onChange={handleChange}
+          onKeyDown={search}
         >
-        </textarea>
+        </input>
       </div>
 
-      <button type='submit' className=''>Submit</button>
+      <label className={`${formStage > 3 ? '' : 'stealth'}`}>contact.exe sending message...</label>
+      <label className='stealth' id='formSent' > message successful</label>
 
     </form>
   )

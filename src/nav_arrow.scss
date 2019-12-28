@@ -35,7 +35,7 @@ background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9
 
 .arrow.primera.bounceAlpha {
   animation-name: bounceAlpha;
-  animation-duration:1.4s;
+  animation-duration:1.2s;
   animation-delay:0.2s;
   animation-iteration-count:infinite;
   animation-timing-function:linear;
@@ -43,13 +43,13 @@ background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9
 
 .round:hover .arrow{
   animation-name: bounceAlpha;
-  animation-duration:1.4s;
+  animation-duration:1s;
   animation-iteration-count:infinite;
   animation-timing-function:linear;
 }
 .round:hover .arrow.primera{
   animation-name: bounceAlpha;
-  animation-duration:1.4s;
+  animation-duration:1s;
   animation-delay:0.2s;
   animation-iteration-count:infinite;
   animation-timing-function:linear;

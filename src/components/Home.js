@@ -39,17 +39,15 @@ export default class Home extends React.Component {
     this.search = this.search.bind(this)
   }
 
-
   componentDidMount() {
+    document.getElementsByTagName('form')[0].classList.add('stealth')
     document.getElementsByTagName('body')[0].style.backgroundColor = '#E3F8FF'
-
   }
 
-  handleSubmit() {
-    //formatting for SocketLabs object
-    const obj = {
+  handleSubmit() { 
+    const obj = { //formatting for SocketLabs object
       to: 'matt.davey540@me.com', //client's email address
-      from: this.state.form.email, //dummy email address
+      from: this.state.form.email, //contact's email address
       subject: 'You\'ve recieved a message from your website',
       textBody: this.state.form.message,
       htmlBody: `
@@ -64,7 +62,6 @@ export default class Home extends React.Component {
     `,
       messageType: 'basic'
     }
-    //post message
     axios.post('api/contact', obj)
       .then(
         document.getElementById('formSent').classList.add('boot')
@@ -75,34 +72,40 @@ export default class Home extends React.Component {
   handleChange({ target: { name, value } }) {
     const form = { ...this.state.form, [name]: value }
     this.setState({ form })
-
-    // //testing for multi-line messages
-    // var text = this.state.form.message
-    // var match = /\r|\n/.exec(text)
-    // if (match) {
-    //   console.log('whitepsace!')
-    // }
-    // console.log(this.state.form.message)
-
   }
 
-  toggleForm(e) {
+  toggleForm(e) { // is the contact form open or not & resets
     e.preventDefault()
     this.setState({ toggleForm: !this.state.toggleForm })
-    console.log(this.state.toggleForm)
+    console.log('form state ',this.state.toggleForm)
     if (this.state.formStage === 0) {
       this.setState({ formStage: 1 })
+      setTimeout(() => { 
+        document.getElementById('form1').focus()
+      },2300)
     } else {
-      this.setState({ formStage: 0 })
+      this.setState({ ...this.state, formStage: 0, form: {
+        firstname: '',
+        lastname: '',
+        email: '',
+        number: '',
+        subject: '',
+        message: ''
+      }
+      })
+      document.getElementById('formSent').classList.remove('boot')
     }
   }
 
-  search() {
+  search() { //listen to enter keys to move onto each form id
     if (event.key === 'Enter') {
       const Stage = this.state.formStage
       this.setState({ formStage: Stage + 1 })
       console.log('form' + this.state.formStage)
       document.getElementById('form' + this.state.formStage).disabled = true
+      setTimeout(() => { 
+        document.getElementById('form' + this.state.formStage).focus()
+      },50)
     }
     if (event.key === 'Enter' && this.state.formStage === 3) {
       this.handleSubmit()
@@ -130,15 +133,15 @@ export default class Home extends React.Component {
 
 
         <About
-          className='flex-wrapper middle-center animated hidden'
+          className=''
         />
 
         <Skills
-          className='flex-wrapper middle-center animated hidden'
+          className=''
         />
 
         <Projects
-          className='flex-wrapper middle-center animated hidden'
+          className=''
         />
 
       </main>

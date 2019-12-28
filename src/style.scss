@@ -91,6 +91,9 @@ a {
 .stealth {
   visibility: hidden;
 }
+img, svg {
+  max-width: 90px;
+}
 
 //         NAV
 // -----------
@@ -110,7 +113,7 @@ nav {
 form {
   min-width: 100vw;
   min-height: 80px;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(29,29,29,0.95);
 }
 label {
   font-family: 'Courier Prime', monospace;
@@ -129,6 +132,9 @@ textarea, input {
   border: 0px;
   color: white;
   font-family: 'Courier Prime', monospace;
+}
+*:focus {
+  outline: none;
 }
 
 

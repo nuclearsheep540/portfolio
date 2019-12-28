@@ -94,6 +94,9 @@ export default class Home extends React.Component {
       }
       })
       document.getElementById('formSent').classList.remove('boot')
+      document.getElementById('form1').disabled = false
+      document.getElementById('form2').disabled = false
+      document.getElementById('form3').disabled = false
     }
   }
 

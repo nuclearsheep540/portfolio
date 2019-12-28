@@ -4,8 +4,8 @@ const ContactForm = ({ search, formStage, handleSubmit, handleChange, form }) =>
   return (
     <form onSubmit={handleSubmit} className={`${formStage > 0 ? 'animated slideInDown fast' : 'animated slideOutUp'}`}>
 
+      <label>booting up contact.exe ...</label><br></br>
       <div className={`${formStage > 0 ? 'animated slideInDown fast' : 'stealth'}`}>
-        <label>booting up contact.exe ...</label><br></br>
         <label className={`${formStage > 0 ? 'boot' : 'stealth'}`}>~/contact/name: </label>
         <input
           id='form1'
@@ -19,7 +19,7 @@ const ContactForm = ({ search, formStage, handleSubmit, handleChange, form }) =>
       </div>
 
       <div className={`${formStage > 1 ? '' : 'stealth'}`}>
-        <label>~/contact/email: </label>
+        <label>~/contact/email:</label>
         <input
           id='form2'
           type='text'
@@ -31,21 +31,25 @@ const ContactForm = ({ search, formStage, handleSubmit, handleChange, form }) =>
         </input>
       </div>
 
-      <div className={`${formStage > 2 ? '' : 'stealth'}`}>
-        <label>~/contact/message: </label>
-        <input
+      <div id='message' className={`${formStage > 2 ? '' : 'stealth'}`}>
+        <label>~/contact/message:  </label>
+        <textarea
           id='form3'
           type='text'
           name='message'
           value={form.message}
           onChange={handleChange}
           onKeyDown={search}
+          maxLength={196}
         >
-        </input>
+        </textarea>
       </div>
 
       <label className={`${formStage > 3 ? '' : 'stealth'}`}>contact.exe sending message...</label>
-      <label className='stealth' id='formSent' > message successful</label>
+      <label className='hidden' id='formSent'> message successful</label>
+      <br></br>
+      <label className='hidden' id='emailErr'> message failed. please use valid email address</label>
+
 
     </form>
   )

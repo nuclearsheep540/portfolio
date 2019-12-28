@@ -44,7 +44,7 @@ export default class Home extends React.Component {
     document.getElementsByTagName('body')[0].style.backgroundColor = '#E3F8FF'
   }
 
-  handleSubmit() { 
+  handleSubmit() {
     const obj = { //formatting for SocketLabs object
       to: 'matt.davey540@me.com', //client's email address
       from: this.state.form.email, //contact's email address
@@ -64,8 +64,35 @@ export default class Home extends React.Component {
     }
     axios.post('api/contact', obj)
       .then(
-        document.getElementById('formSent').classList.add('boot')
+        setTimeout(() => {
+          document.getElementById('formSent').classList.add('boot'),
+          document.getElementById('formSent').classList.remove('hidden')
+        }, 150)
       )
+      .catch(err => console.log(err))
+  }
+  handleCC() {
+    const sender = { // copy for contacter
+      to: this.state.form.email, //contact's email address
+      from: 'matt.davey540@me.com', //client's email address
+      subject: 'Thanks for getting in touch',
+      textBody: 'We\'re just letting you know we\'ve recieved your message',
+      htmlBody: `
+      <html>
+      Thanks for getting in touch, ${this.state.form.firstname} <br />
+      <br />
+      If you're receiving this message, it's to confirm we've got your following message: <br>
+  
+      ${this.state.form.message.replace('\n\n', '<br /> <br />').replace('\n', '<br />')}<br />
+      <br />
+      We'll try and get back to you as soon as possible. <br />
+      Thanks!
+      </html>
+      `,
+      messageType: 'basic'
+    }
+    axios.post('api/contact', sender)
+      .then(res => console.log(res))
       .catch(err => console.log(err))
   }
 
@@ -77,23 +104,25 @@ export default class Home extends React.Component {
   toggleForm(e) { // is the contact form open or not & resets
     e.preventDefault()
     this.setState({ toggleForm: !this.state.toggleForm })
-    console.log('form state ',this.state.toggleForm)
+    console.log('form state ', this.state.toggleForm)
     if (this.state.formStage === 0) {
       this.setState({ formStage: 1 })
-      setTimeout(() => { 
+      setTimeout(() => {
         document.getElementById('form1').focus()
-      },2300)
+      }, 2300)
     } else {
-      this.setState({ ...this.state, formStage: 0, form: {
-        firstname: '',
-        lastname: '',
-        email: '',
-        number: '',
-        subject: '',
-        message: ''
-      }
+      this.setState({
+        ...this.state, formStage: 0, form: {
+          firstname: '',
+          lastname: '',
+          email: '',
+          number: '',
+          subject: '',
+          message: ''
+        }
       })
       document.getElementById('formSent').classList.remove('boot')
+      document.getElementById('emailErr').classList.add('hidden')
       document.getElementById('form1').disabled = false
       document.getElementById('form2').disabled = false
       document.getElementById('form3').disabled = false
@@ -106,13 +135,15 @@ export default class Home extends React.Component {
       this.setState({ formStage: Stage + 1 })
       console.log('form' + this.state.formStage)
       document.getElementById('form' + this.state.formStage).disabled = true
-      setTimeout(() => { 
+      setTimeout(() => {
         document.getElementById('form' + this.state.formStage).focus()
-      },50)
+      }, 50)
     }
-    if (event.key === 'Enter' && this.state.formStage === 3) {
-      this.handleSubmit()
-    }
+    if (event.key === 'Enter' && this.state.formStage === 3 && this.state.form.email.includes('@')) {
+      this.handleSubmit(),
+      this.handleCC()
+    } else if (event.key === 'Enter' && this.state.formStage === 3 && !this.state.form.email.includes('@'))
+      document.getElementById('emailErr').classList.remove('hidden')
   }
 
   render() {
@@ -134,19 +165,19 @@ export default class Home extends React.Component {
           <a onClick={this.toggleForm}>Contact</a>
         </nav>
 
+        <div className='master'>
+          <About
+            className=''
+          />
 
-        <About
-          className=''
-        />
+          <Skills
+            className=''
+          />
 
-        <Skills
-          className=''
-        />
-
-        <Projects
-          className=''
-        />
-
+          <Projects
+            className=''
+          />
+        </div>
       </main>
 
     )

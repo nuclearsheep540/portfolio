@@ -94,6 +94,18 @@ a {
 img, svg {
   max-width: 90px;
 }
+div.master {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  right: 0px;
+  min-width: 500px;
+  position: fixed;
+  overflow: auto;
+  padding-right: -10%;
+  padding-left: -10%;
+}
 
 //         NAV
 // -----------
@@ -101,6 +113,7 @@ nav {
   position: absolute;
   transition-delay: 1000ms;
   transition: linear 1000ms;
+  z-index: 9999;
 }
 
 
@@ -111,13 +124,25 @@ nav {
 //        FORM
 // -----------
 form {
-  min-width: 100vw;
-  min-height: 80px;
+  width: 100vw;
+  min-width: 200px;
+  height: fit-content;
   background-color: rgba(29,29,29,0.95);
+  overflow:hidden;
+}
+div#message{
+  display: flex;
+  flex-direction: row;
+  border: 0px;
+  align-items: flex-start;
+  min-width: 60vw;
+  flex-wrap: wrap;
 }
 label {
+  border: 0px solid greenyellow;
   font-family: 'Courier Prime', monospace;
   color: white;
+  display: inline-flex;
 }
 label.boot {
   visibility: visible;
@@ -127,11 +152,23 @@ label.send {
   visibility: visible;
   transition-delay: 300ms;
 }
-textarea, input {
+input {
+  border: 0px solid red;
   background-color: rgba(0,0,0,0);
-  border: 0px;
   color: white;
   font-family: 'Courier Prime', monospace;
+  max-width: 60vw;
+  min-width: 50px;
+  overflow: hidden;
+}
+textarea {
+  border: 0px;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  font-family: 'Courier Prime', monospace;
+  resize: none;
+  max-height: 42px;
+  min-width: 98vw;
 }
 *:focus {
   outline: none;

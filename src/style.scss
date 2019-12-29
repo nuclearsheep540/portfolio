@@ -67,6 +67,15 @@ h3#sub {
 }
 // GLOBAL ELEM
 // -----------
+main, body {
+  background-color: rgba(0,0,0,0);
+}
+.hidden {
+  display: none !important
+}
+.stealth {
+  visibility: hidden;
+}
 html {
   scroll-behavior: smooth;
 }
@@ -75,45 +84,89 @@ html {
     scroll-behavior: auto;
   }
 }
-a {
-  margin: 0 10px;
-  display: inline;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-}
 
-.hidden {
-  display: none !important
-}
-.stealth {
-  visibility: hidden;
-}
+
 img, svg {
   max-width: 90px;
 }
 div.master {
+ bottom: 0px;
+ height: 80vh;
+ z-index: -1;
+}
+
+
+//      ABOUT
+// -----------
+section {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-  right: 0px;
-  min-width: 500px;
-  position: fixed;
-  overflow: auto;
-  padding-right: -10%;
-  padding-left: -10%;
+  flex-wrap: nowrap;
+  border: 1px solid red;
+  
+  width: 71vw;
+  min-width: 660px;
+  min-height: 400px;
+  max-height: 400px;
+
+  justify-content: space-evenly;
+  margin: 10px 5px;
+  overflow: scroll;
+}
+.gif {
+  max-height: 320px;
+  min-height: 320px;
+  max-width: 480px;
+  min-width: 480px;
+  overflow: hidden;
+  border: 2px solid blue;
+}
+.carousel {
+  margin: auto;
+  margin-top: 32px;
+  border: 2px solid gold;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: scroll;
+
+  max-height: 700px;
+  width: 72vw;
+  min-width: 675px;
+
+}
+
+//      MAPBOX
+// -----------
+.pin {
+  max-height: 20px;
+}
+.map {
+  width: 480px;
+  height: 320px;
+  border: 0px;
 }
 
 //         NAV
 // -----------
 nav {
-  position: absolute;
+  position: fixed;
+  top: 0px;
+  right: 100px;
   transition-delay: 1000ms;
   transition: linear 1000ms;
   z-index: 9999;
+}
+a {
+  display: inline;
+  text-decoration: none;
+  color: $dark;
+  cursor: pointer;
+  z-index: 2;
+  font-family: 'Courier Prime', monospace;
 }
 
 
@@ -124,10 +177,12 @@ nav {
 //        FORM
 // -----------
 form {
+  position: fixed;
+  top: 0px;
   width: 100vw;
   min-width: 200px;
   height: fit-content;
-  background-color: rgba(29,29,29,0.95);
+  background-color: $dark;
   overflow:hidden;
 }
 div#message{
@@ -141,7 +196,7 @@ div#message{
 label {
   border: 0px solid greenyellow;
   font-family: 'Courier Prime', monospace;
-  color: white;
+  color: $light;
   display: inline-flex;
 }
 label.boot {
@@ -155,7 +210,7 @@ label.send {
 input {
   border: 0px solid red;
   background-color: rgba(0,0,0,0);
-  color: white;
+  color: $light;
   font-family: 'Courier Prime', monospace;
   max-width: 60vw;
   min-width: 50px;
@@ -164,7 +219,7 @@ input {
 textarea {
   border: 0px;
   background-color: rgba(0,0,0,0);
-  color: white;
+  color: $light;
   font-family: 'Courier Prime', monospace;
   resize: none;
   max-height: 42px;

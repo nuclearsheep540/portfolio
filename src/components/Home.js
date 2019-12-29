@@ -14,6 +14,9 @@ export default class Home extends React.Component {
   constructor() {
     super()
     this.state = {
+      aboutId: 1,
+      scroll: 2,
+      scrollx: 0,
       toggleForm: false,
       formStage: 0,
       form: { //data from the front end, collected from the form
@@ -37,12 +40,26 @@ export default class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleForm = this.toggleForm.bind(this)
     this.search = this.search.bind(this)
+
   }
+
 
   componentDidMount() {
     document.getElementsByTagName('form')[0].classList.add('stealth')
     document.getElementsByTagName('body')[0].style.backgroundColor = '#E3F8FF'
+   
+    const car = document.querySelectorAll('.carousel')[0]
+    car.addEventListener('scroll', () => { 
+      const left = car.scrollLeft 
+      //how far left we've scrolled
+      const right = Math.round(car.scrollLeft - car.scrollWidth + ( car.clientWidth )) 
+      //how far left, against the width of the elem, to find right
+      console.log('away from left :', left)
+      console.log('away from right:', right)
+    })
   }
+
+
 
   handleSubmit() {
     const obj = { //formatting for SocketLabs object
@@ -109,6 +126,8 @@ export default class Home extends React.Component {
       this.setState({ formStage: 1 })
       setTimeout(() => {
         document.getElementById('form1').focus()
+        document.querySelector('a').style.color = '#E3F8FF'
+        document.querySelector('a').innerHTML = 'terminate contact.exe'
       }, 2300)
     } else {
       this.setState({
@@ -121,6 +140,10 @@ export default class Home extends React.Component {
           message: ''
         }
       })
+      setTimeout(() => {
+        document.querySelector('a').style.color = '#213135'
+        document.querySelector('a').innerHTML = 'run contact.exe'
+      }, 1200)
       document.getElementById('formSent').classList.remove('boot')
       document.getElementById('emailErr').classList.add('hidden')
       document.getElementById('form1').disabled = false
@@ -148,9 +171,8 @@ export default class Home extends React.Component {
 
   render() {
     if (!this.state) return null
-    console.log('form stage ', this.state.formStage)
-    return (
 
+    return (
       <main className={`${this.props.history.action === 'PUSH' ? 'animated fadeInRight' : ''}`}>
         <ContactForm
           handleSubmit={this.handleSubmit}
@@ -158,25 +180,26 @@ export default class Home extends React.Component {
           form={this.state.form}
           formStage={this.state.formStage}
           search={this.search}
-
         />
         <nav>
           <Navbar />
-          <a onClick={this.toggleForm}>Contact</a>
+          <a onClick={this.toggleForm}>run contact.exe</a>
         </nav>
 
         <div className='master'>
           <About
-            className=''
+            className='stealth'
+            id={this.state.aboutId}
           />
 
-          <Skills
+          {/* <Skills
             className=''
-          />
+          /> */}
 
-          <Projects
+          {/* <Projects
             className=''
-          />
+          /> */}
+
         </div>
       </main>
 

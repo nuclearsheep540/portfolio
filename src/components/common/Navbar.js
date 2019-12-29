@@ -18,9 +18,9 @@ export default class Navbar extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Link className='' to='/about'>About Me</Link>
+        {/* <Link className='' to='/about'>About Me</Link>
         <Link className='' to='/skills'>Skills</Link>
-        <Link className='' to='/projects'>Projects</Link>
+        <Link className='' to='/projects'>Projects</Link> */}
 
         <Switch>
           <Route exact path='/' Component={Landing}></Route>

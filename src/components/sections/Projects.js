@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Projects = ({ className }) => {
+const Projects = () => {
   return (
-    <div className={ className }>
+    <div className='section'>
 
       <section className="middle-center">
         <h2>Projects</h2>

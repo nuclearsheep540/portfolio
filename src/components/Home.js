@@ -10,6 +10,8 @@ import Navbar from './common/Navbar'
 
 
 
+
+
 export default class Home extends React.Component {
   constructor() {
     super()
@@ -46,17 +48,17 @@ export default class Home extends React.Component {
 
   componentDidMount() {
     document.getElementsByTagName('form')[0].classList.add('stealth')
-    document.getElementsByTagName('body')[0].style.backgroundColor = '#E3F8FF'
-   
-    const car = document.querySelectorAll('.carousel')[0]
-    car.addEventListener('scroll', () => { 
-      const left = car.scrollLeft 
-      //how far left we've scrolled
-      const right = Math.round(car.scrollLeft - car.scrollWidth + ( car.clientWidth )) 
-      //how far left, against the width of the elem, to find right
-      console.log('away from left :', left)
-      console.log('away from right:', right)
-    })
+    document.getElementsByTagName('body')[0].style.backgroundColor = 'rgb(250,250,250)'
+
+    // const car = document.querySelectorAll('.carousel')[0]
+    // car.addEventListener('scroll', () => { 
+    //   const left = car.scrollLeft 
+    //   //how far left we've scrolled
+    //   const right = Math.round(car.scrollLeft - car.scrollWidth + ( car.clientWidth )) 
+    //   //how far left, against the width of the elem, to find right
+    //   console.log('away from left :', left)
+    //   console.log('away from right:', right)
+    // })
   }
 
 
@@ -127,7 +129,7 @@ export default class Home extends React.Component {
       setTimeout(() => {
         document.getElementById('form1').focus()
         document.querySelector('a').style.color = '#E3F8FF'
-        document.querySelector('a').innerHTML = 'terminate contact.exe'
+        document.querySelector('a').innerHTML = 'close [x]'
       }, 2300)
     } else {
       this.setState({
@@ -142,7 +144,7 @@ export default class Home extends React.Component {
       })
       setTimeout(() => {
         document.querySelector('a').style.color = '#213135'
-        document.querySelector('a').innerHTML = 'run contact.exe'
+        document.querySelector('a').innerHTML = 'contact.exe'
       }, 1200)
       document.getElementById('formSent').classList.remove('boot')
       document.getElementById('emailErr').classList.add('hidden')
@@ -174,6 +176,10 @@ export default class Home extends React.Component {
 
     return (
       <main className={`${this.props.history.action === 'PUSH' ? 'animated fadeInRight' : ''}`}>
+        <nav>
+          <Navbar />
+          <a onClick={this.toggleForm}>contact.exe</a>
+        </nav>
         <ContactForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
@@ -181,26 +187,22 @@ export default class Home extends React.Component {
           formStage={this.state.formStage}
           search={this.search}
         />
-        <nav>
-          <Navbar />
-          <a onClick={this.toggleForm}>run contact.exe</a>
-        </nav>
 
         <div className='master'>
           <About
-            className='stealth'
+            className=''
             id={this.state.aboutId}
           />
 
-          {/* <Skills
+          <Projects
             className=''
-          /> */}
+          />
 
-          {/* <Projects
+          <Skills
             className=''
-          /> */}
-
+          />
         </div>
+
       </main>
 
     )

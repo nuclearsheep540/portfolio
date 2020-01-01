@@ -10,6 +10,7 @@ import 'animate.css'
 import './style.scss'
 // import './nav_arrow.scss'
 
+
 const App = () => (
   <BrowserRouter>
     <Switch>

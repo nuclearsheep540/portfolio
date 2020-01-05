@@ -1,16 +1,11 @@
 import React from 'react'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const Projects = () => {
   return (
     <div className='section rightCar'>
 
-      <div className='left'>
-        <div>
-          <h3>App Image</h3>
-        </div>
-      </div>   
 
 
       <CarouselProvider
@@ -18,12 +13,21 @@ const Projects = () => {
         naturalSlideHeight={500}
         totalSlides={4}
       >
+        <ButtonFirst>First</ButtonFirst>
+        <ButtonBack>Back</ButtonBack>
 
         <Slider>
           <Slide index={0}>
             <div className=''>
+
+              <div className='left'>
+                <div>
+                  <h3>App Image</h3>
+                </div>
+              </div>
+
               <h3>Whatify</h3>
-              <p>React JS, Express: Node.js, Pythond, Django, postgreSQL</p>
+              <p>React JS, Express: Node.js, Python, Django, postgreSQL</p>
               <p className="">Our main focus for this app was integrating open authentication with Spotify to process user
               listening data, curating randomised quizzes tailored to the user’s listening experience. Using a Python
               backend we were able to handle all user authentication and the large requests of data from the spotify user.
@@ -36,6 +40,13 @@ const Projects = () => {
 
           <Slide index={1}>
             <div className=''>
+
+              <div className='left'>
+                <div>
+                  <h3>App Image</h3>
+                </div>
+              </div>
+
               <h3>Skill Swap</h3>
               <p>React JS, Express: Node.js, MongoDB & Mongoose</p>
               <p className="">Skill Swap is a social platform to enable new and junior developers to meet and support each
@@ -50,6 +61,13 @@ const Projects = () => {
 
           <Slide index={2}>
             <div className=''>
+
+              <div className='left'>
+                <div>
+                  <h3>App Image</h3>
+                </div>
+              </div>
+
               <h3>Gig-on-a-map</h3>
               <p>React JS, Express: Node.js, RESTful API</p>
               <p className="">During this hackathon, I focussed on getting MapboxGL to display music event data as markers,
@@ -63,6 +81,13 @@ const Projects = () => {
 
           <Slide index={3}>
             <div className=''>
+
+              <div className='left'>
+                <div>
+                  <h3>App Image</h3>
+                </div>
+              </div>
+
               <h3>Deep Sea Battle: Shots Fired!</h3>
               <p>JavaScript, HTML5, CSS3</p>
               <p className="">My first project was a cell-based JavaScript game, combining concepts from battleships as well
@@ -76,12 +101,12 @@ const Projects = () => {
           </Slide>
         </Slider>
 
-        <ButtonBack>Back</ButtonBack>
         <ButtonNext>Next</ButtonNext>
+        <ButtonLast>Last</ButtonLast>
 
-      </CarouselProvider>   
+      </CarouselProvider>
 
-      
+
     </div>
   )
 }

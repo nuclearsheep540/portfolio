@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, ButtonFirst, ButtonLast } from 'pure-react-carousel'
 import 'pure-react-carousel/dist/react-carousel.es.css'
 
 
@@ -14,6 +14,8 @@ const About = ({ className, id }) => {
         naturalSlideHeight={500}
         totalSlides={8}
       >
+        <ButtonFirst>First</ButtonFirst>
+        <ButtonBack>Back</ButtonBack>
 
         <Slider>
           <Slide index={0}>
@@ -79,17 +81,19 @@ const About = ({ className, id }) => {
           </Slide>
         </Slider>
 
-        <ButtonBack>Back</ButtonBack>
+     
         <ButtonNext>Next</ButtonNext>
+        <ButtonLast>Last</ButtonLast>
 
       </CarouselProvider>
 
-      <div className='right'>
+      {/* <div className='right'>
         <div>
           <h3>Hey there</h3>
           <p>My name is matt</p>
         </div>
-      </div>
+      </div> */}
+      
     </div>
   )
 }

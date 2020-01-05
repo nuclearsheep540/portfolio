@@ -72,6 +72,7 @@ body {
 }
 div {
   color: $light;
+  font-family: 'Kanit';
 }
 div#root {
   max-width: 100vw !important;
@@ -114,14 +115,13 @@ div.master {
 
 .element {
   background: linear-gradient(180deg, rgba(0,164,184,1) 90%, rgba(227,248,255,0.2) 100%);
-  height: 90vh;
-  width: 100vw;
+  min-height:100vh;
+  min-width: 210vw;
   animation: skew 45s infinite;
   animation-direction: alternate;
   transition: ease-in-out;
-  opacity: .7;
-
-  top: -100vh;
+  opacity: 1;
+  left: -15vw;
   position: absolute;
   z-index: -1;
   background-color: $tech;
@@ -144,7 +144,7 @@ div.master {
 }
 
 .back-2 {
-  top: -1680px;
+  top: -1900px;
   left: 200px;
   display: flex;
   position: absolute;
@@ -188,7 +188,7 @@ section {
 .section {
   border: 1px solid red;
   width: 900px;
-  max-height: 420px;
+  max-height: inherit;
   display: flex;
   justify-content: flex-start;
   padding-top: 48px;
@@ -197,17 +197,23 @@ section {
 }
 .carousel {
   // background-color: white;
+  display: flex;
   position: relative;
   z-index: 0;
   border-radius: 4px;
   min-height: 422px;
   max-height: 422px;
-  max-width: 482px;
+  min-width: 492px;
+  margin: auto;
   border: 1px solid greenyellow;
+  button {
+    background-color: rgba(0,0,0,0);
+    border: 0px;
+  }
 }
 .horizontalSlider___281Ls, .carousel__slider, .carousel__slider--horizontal{
-  min-height: 422px;
-  min-width: 482px;
+  min-height: inherit;
+  min-width: inherit;
 }
 
 //    PROJECTS
@@ -218,10 +224,16 @@ section {
   flex-wrap: wrap;
   position: relative;
 }
+// .leftCar {
+//   display: flex;
+//   justify-content: flex-start;
+//   flex-wrap: wrap;
+//   position: relative;
+// }
 .leftCar {
   display: flex;
-  justify-content: flex-start;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: nowrap;
   position: relative;
 }
 .right {

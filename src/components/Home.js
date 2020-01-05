@@ -171,10 +171,17 @@ export default class Home extends React.Component {
 
     return (
       <div className={`${this.props.history.action === 'PUSH' ? 'animated fadeIn delay-1s' : ''}`}>
+
+        <div className='limiter'>
+          <div className='element'></div>
+          <div className='back-2'></div>
+        </div>
+
         <nav>
           <Navbar />
           <a onClick={this.toggleForm}>contact.exe</a>
         </nav>
+
         <ContactForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
@@ -196,11 +203,6 @@ export default class Home extends React.Component {
           <Skills
             className=''
           />
-        </div>
-
-        <div className='limiter'>
-          <div className='element'></div>
-          <div className='back-2'></div>
         </div>
       </div>
 

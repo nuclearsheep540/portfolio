@@ -20,15 +20,15 @@ const About = ({ className, id }) => {
         <Slider>
           <Slide index={0}>
             <section id='about1' className={id !== 1 ? className : ''}>
-              <h2>Hello World, </h2>
-              <h3>My name is Matt and I'm a developer</h3>
+              <h1>HELLO WORLD</h1>
+              <h2>My name is Matt and I'm a developer</h2>
             </section>
           </Slide>
 
           <Slide index={1}>
             <section id='about2' className={id !== 2 ? className : ''}>
               <img src='https://media.giphy.com/media/fdcibA8CVjFFS/giphy.gif' className='gif'></img>
-              <p>Well, isn't that a bit cheesey?</p>
+              <p>Well, isn't that cheesey?</p>
               {/* bear wave */}
             </section>
           </Slide>

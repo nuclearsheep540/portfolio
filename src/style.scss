@@ -78,7 +78,20 @@ div#root {
   max-width: 100vw !important;
   overflow: hidden !important;
 }
-
+h1, h2 {
+  font-variant-caps: normal;
+  text-align: center;
+}
+.bottom {
+  display: inline;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+.h200 {
+  min-height: 200px;
+}
 .hidden {
   display: none !important
 }
@@ -119,7 +132,8 @@ div.master {
   min-width: 210vw;
   animation: skew 45s infinite;
   animation-direction: alternate;
-  transition: ease-in-out;
+  transition: ease-in-out 2s;
+  transition-delay: 1.5s;
   opacity: 1;
   left: -15vw;
   position: absolute;

@@ -24,7 +24,7 @@ body::-webkit-scrollbar {
 .hero {
   display: flex;
   flex-direction: column;
-  position: fixed;
+  position: absolute;
   top: 0px;
   color:$light;
   width: 116vw;
@@ -48,7 +48,7 @@ body::-webkit-scrollbar {
   flex-direction: column;
   align-items: center;
   margin: auto 0;
-  transform: translateY(-20%);
+  transform: translateY(15%);
 }
 .scrollable {
   position: absolute;
@@ -67,14 +67,24 @@ h3#sub {
 }
 // GLOBAL ELEM
 // -----------
-main, body {
-  background-color: $white }
+body {
+  background-color:$black !important
+}
+div {
+  color: $light;
+}
+div#root {
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
 .hidden {
   display: none !important
 }
 .stealth {
   visibility: hidden;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -83,7 +93,6 @@ html {
     scroll-behavior: auto;
   }
 }
-
 div.master {
   width: 100vw;
   height: 100%;
@@ -92,8 +101,62 @@ div.master {
   flex-direction: column;
   align-items: center;
   z-index: 2;
+  overflow: hidden;
 }
 
+.limiter {
+  position: relative;
+  max-width: 100vw !important;
+  // overflow: hidden !important;
+  transform: translateX(-1px);
+  z-index: -2;
+}
+
+.element {
+  background: linear-gradient(180deg, rgba(0,164,184,1) 90%, rgba(227,248,255,0.2) 100%);
+  height: 90vh;
+  width: 100vw;
+  animation: skew 45s infinite;
+  animation-direction: alternate;
+  transition: ease-in-out;
+  opacity: .7;
+
+  top: -100vh;
+  position: absolute;
+  z-index: -1;
+  background-color: $tech;
+  overflow: hidden;
+}
+
+@keyframes skew {
+  0% {
+    transform: skew(20deg, 0deg);
+  }
+  50% {
+    transform: skew(35deg, -35deg);
+  }
+  60% {
+    transform: skew(55deg, 0deg);
+  }
+  100% {
+    transform: skew(95deg, 35deg);
+  }
+}
+
+.back-2 {
+  top: -1680px;
+  left: 200px;
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  margin: auto;
+  z-index: -2;
+  // background-color: rgb(10,10,10);
+  background-color: $dark;
+  transform: skew(-0.8turn, -70deg);
+  overflow: hidden;
+}
 
 //      ABOUT
 // -----------
@@ -124,7 +187,8 @@ section {
 }
 .section {
   border: 1px solid red;
-  width: 800px;
+  width: 900px;
+  max-height: 420px;
   display: flex;
   justify-content: flex-start;
   padding-top: 48px;
@@ -139,11 +203,43 @@ section {
   min-height: 422px;
   max-height: 422px;
   max-width: 482px;
+  border: 1px solid greenyellow;
 }
 .horizontalSlider___281Ls, .carousel__slider, .carousel__slider--horizontal{
   min-height: 422px;
   min-width: 482px;
 }
+
+//    PROJECTS
+// -----------
+.rightCar {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  position: relative;
+}
+.leftCar {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+}
+.right {
+  display: flex;
+  justify-content: flex-end;
+  width: 45%;
+  text-align: right;
+  border: 1px solid purple;
+}
+.left {
+  display: flex;
+  justify-content: flex-start;
+  width: 45%;
+  text-align: left;
+  border: 1px solid purple;
+}
+
+
 
 //      MAPBOX
 // -----------
@@ -162,17 +258,18 @@ nav {
   display: flex;
   justify-content: flex-end;
   top: 0px;
-  right: 100px;
+  font-size: large;
+  margin-right: 10px;
   transition-delay: 1000ms;
   transition: linear 1000ms;
   z-index: 9;
   border: 1px solid blue;
 }
-a {
+nav > a {
   display: inline;
   position: fixed;
   text-decoration: none;
-  color: $dark;
+  color: $light;
   cursor: pointer;
   z-index: 9;
   font-family: 'Courier Prime', monospace;
@@ -192,7 +289,7 @@ form {
   width: 100vw;
   min-width: 200px;
   height: fit-content;
-  background-color: $dark;
+  background-color: rgba(10, 10, 10, 0.9 );
   overflow:hidden;
 }
 div#message{

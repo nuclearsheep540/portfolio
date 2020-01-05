@@ -7,7 +7,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const About = ({ className, id }) => {
   return (
-    <div className='section'>
+    <div className='section leftCar'>
 
       <CarouselProvider
         naturalSlideWidth={1000}
@@ -84,7 +84,12 @@ const About = ({ className, id }) => {
 
       </CarouselProvider>
 
-      {/* end of track */}
+      <div className='right'>
+        <div>
+          <h3>Hey there</h3>
+          <p>My name is matt</p>
+        </div>
+      </div>
     </div>
   )
 }

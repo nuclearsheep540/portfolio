@@ -1,5 +1,4 @@
 import React from 'react'
-// import ReactPlayer from 'react-player'
 import VideoCover from 'react-video-cover'
 
 export default class Landing extends React.Component {

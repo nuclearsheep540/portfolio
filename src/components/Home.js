@@ -1,16 +1,11 @@
 import React from 'react'
 import axios from 'axios'
 
-
 import About from './sections/About'
 import Skills from './sections/Skills'
 import Projects from './sections/Projects'
 import ContactForm from './common/ContactForm'
 import Navbar from './common/Navbar'
-
-
-
-
 
 export default class Home extends React.Component {
   constructor() {
@@ -143,7 +138,7 @@ export default class Home extends React.Component {
         }
       })
       setTimeout(() => {
-        document.querySelector('a').style.color = '#213135'
+        document.querySelector('a').style.color = '#E3F8FF'
         document.querySelector('a').innerHTML = 'contact.exe'
       }, 1200)
       document.getElementById('formSent').classList.remove('boot')
@@ -175,7 +170,7 @@ export default class Home extends React.Component {
     if (!this.state) return null
 
     return (
-      <main className={`${this.props.history.action === 'PUSH' ? 'animated fadeInRight' : ''}`}>
+      <div className={`${this.props.history.action === 'PUSH' ? 'animated fadeIn delay-1s' : ''}`}>
         <nav>
           <Navbar />
           <a onClick={this.toggleForm}>contact.exe</a>
@@ -203,7 +198,11 @@ export default class Home extends React.Component {
           />
         </div>
 
-      </main>
+        <div className='limiter'>
+          <div className='element'></div>
+          <div className='back-2'></div>
+        </div>
+      </div>
 
     )
   }

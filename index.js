@@ -12,6 +12,8 @@ app.use('/api', router)
 
 app.use(bodyParser.json())
 
+app.use(express.static('public'))
+
 app.use('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 //any get request come deploy, use index.html at bundle dist folder
 

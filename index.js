@@ -1,4 +1,5 @@
-const { dbURI, port } = require('./config/environment')
+const { dbURI } = require('./config/environment')
+const port = process.env.PORT || 4000
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')

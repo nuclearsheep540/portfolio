@@ -9,7 +9,7 @@
     "back": "nodemon index.js",
     "deploy": "gh-pages-deploy",
     "build": "webpack -p",
-    "start": "start",
+    "start": "node index.js",
     "clean-source": "rimraf README.md src webroot package.json"
   },
   "repository": {

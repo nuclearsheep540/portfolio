@@ -1,5 +1,4 @@
-const port = 8000
-const dbURI = 'mongodb://localhost/skillswap'
+const port = 4000
 const secret = 'shh! not telling'
 
-module.exports = { dbURI, port, secret }
+module.exports = { port, secret }

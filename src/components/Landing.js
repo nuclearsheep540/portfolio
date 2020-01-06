@@ -39,7 +39,7 @@ export default class Landing extends React.Component {
       setTimeout(()=> { // remove the initial transition after its occoured
         document.querySelector('.hero').style.transition = '0s' 
       }, 500)
-    }, 1000)
+    }, 500)
   } // end of mount
 
   nav() { // scroll true ? nav to home

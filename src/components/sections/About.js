@@ -14,8 +14,8 @@ const About = ({ className, id }) => {
         naturalSlideHeight={500}
         totalSlides={8}
       >
-        <ButtonFirst>First</ButtonFirst>
-        <ButtonBack>Back</ButtonBack>
+        <ButtonFirst>&lt;&lt;</ButtonFirst>
+        <ButtonBack>&lt;</ButtonBack>
 
         <Slider>
           <Slide index={0}>
@@ -52,7 +52,7 @@ const About = ({ className, id }) => {
           <Slide index={4}>
             <section id='about5' className={id !== 5 ? className : ''}>
               <img src='https://media.giphy.com/media/fnuSiwXMTV3zmYDf6k/giphy-downsized.gif' className='gif'></img>
-              <p>So what do I do?</p>
+              <p>So who am I?</p>
               {/* kazoo kid */}
             </section>
           </Slide>
@@ -60,7 +60,7 @@ const About = ({ className, id }) => {
           <Slide index={5}>
             <section id='about6' className={id !== 6 ? className : ''}>
               <iframe className='map' src='../Map.html'></iframe>
-              <p>I build digital content and assets for web, all around the world, for big names and brands.</p>
+              <p>Previously, I built digital content and assets for web, all around the world, for big names and brands. Now, I'm a full time full stack developer, always on the look for work.</p>
             </section>
           </Slide>
 
@@ -82,8 +82,8 @@ const About = ({ className, id }) => {
         </Slider>
 
      
-        <ButtonNext>Next</ButtonNext>
-        <ButtonLast>Last</ButtonLast>
+        <ButtonNext>&gt;</ButtonNext>
+        <ButtonLast>&gt;&gt;</ButtonLast>
 
       </CarouselProvider>
 

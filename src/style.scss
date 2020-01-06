@@ -82,6 +82,9 @@ h1, h2 {
   font-variant-caps: normal;
   text-align: center;
 }
+button {
+  color: white;
+}
 .bottom {
   display: inline;
   a {
@@ -127,15 +130,16 @@ div.master {
 }
 
 .element {
+  top: -100px;
   background: linear-gradient(180deg, rgba(0,164,184,1) 90%, rgba(227,248,255,0.2) 100%);
   min-height:100vh;
   min-width: 210vw;
-  animation: skew 45s infinite;
+  animation: skew 30s infinite;
   animation-direction: alternate;
   transition: ease-in-out 2s;
   transition-delay: 1.5s;
   opacity: 1;
-  left: -15vw;
+  left: -20vw;
   position: absolute;
   z-index: -1;
   background-color: $tech;
@@ -144,33 +148,51 @@ div.master {
 
 @keyframes skew {
   0% {
-    transform: skew(20deg, 0deg);
-  }
+    transform: skew(25deg, -20deg) translateY(0px);
+    opacity: 1;
+    }
   50% {
-    transform: skew(35deg, -35deg);
-  }
+    transform: skew(35deg, -35deg) translateY(100px);
+    opacity: 1;
+    }
   60% {
-    transform: skew(55deg, 0deg);
-  }
+    transform: skew(55deg, 0deg) translateX(0px);
+    opacity: 0.2;
+    }
   100% {
     transform: skew(95deg, 35deg);
-  }
+    opacity: 1;
+    }
 }
 
 .back-2 {
-  top: -1900px;
-  left: 200px;
+  top: -50px;
+  left: 400px;
   display: flex;
   position: absolute;
   height: 100vh;
-  width: 100vw;
+  width: 250vw;
   margin: auto;
   z-index: -2;
   // background-color: rgb(10,10,10);
   background-color: $dark;
-  transform: skew(-0.8turn, -70deg);
+  // transform: skew(-0.8turn, -70deg);
   overflow: hidden;
+  animation: rotating 30s infinite;
+  animation-direction: alternate;
+  transition: ease-in-out 2s;
+  transition-delay: 1.5s;
+
 }
+
+@keyframes rotating {
+  0% { transform: skewX(15deg) translateY(-40px) translateX(120px); }
+  50% { transform: skewX(0deg) translateY(-200px) translateX(-150px) scale(1.2); }
+  60% {transform: skewX(0deg) translateY(280px) translateX(-150px) scale(2); }
+  100% { transform: skewX(15deg) translateY(0px) scale(1.4); }
+}
+
+
 
 //      ABOUT
 // -----------
@@ -200,7 +222,7 @@ section {
   // border: 2px solid blue;
 }
 .section {
-  border: 1px solid red;
+  // border: 1px solid red;
   width: 900px;
   max-height: inherit;
   display: flex;
@@ -219,7 +241,7 @@ section {
   max-height: 422px;
   min-width: 492px;
   margin: auto;
-  border: 1px solid greenyellow;
+  // border: 1px solid greenyellow;
   button {
     background-color: rgba(0,0,0,0);
     border: 0px;
@@ -255,14 +277,14 @@ section {
   justify-content: flex-end;
   width: 45%;
   text-align: right;
-  border: 1px solid purple;
+  // border: 1px solid purple;
 }
 .left {
   display: flex;
   justify-content: flex-start;
   width: 45%;
   text-align: left;
-  border: 1px solid purple;
+  // border: 1px solid purple;
 }
 
 
@@ -289,7 +311,7 @@ nav {
   transition-delay: 1000ms;
   transition: linear 1000ms;
   z-index: 9;
-  border: 1px solid blue;
+  // border: 1px solid blue;
 }
 nav > a {
   display: inline;
@@ -299,6 +321,8 @@ nav > a {
   cursor: pointer;
   z-index: 9;
   font-family: 'Courier Prime', monospace;
+  top: 15px;
+  right: 25px;
 }
 
 

@@ -14,8 +14,8 @@ const About = ({ className, id }) => {
         naturalSlideHeight={500}
         totalSlides={8}
       >
-        <ButtonFirst>&lt;&lt;</ButtonFirst>
-        <ButtonBack>&lt;</ButtonBack>
+        <ButtonFirst>First</ButtonFirst>
+        <ButtonBack>Back</ButtonBack>
 
         <Slider>
           <Slide index={0}>
@@ -82,8 +82,8 @@ const About = ({ className, id }) => {
         </Slider>
 
      
-        <ButtonNext>&gt;</ButtonNext>
-        <ButtonLast>&gt;&gt;</ButtonLast>
+        <ButtonNext>Next</ButtonNext>
+        <ButtonLast>Last</ButtonLast>
 
       </CarouselProvider>
 

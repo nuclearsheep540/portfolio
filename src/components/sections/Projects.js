@@ -13,8 +13,8 @@ const Projects = () => {
         naturalSlideHeight={500}
         totalSlides={4}
       >
-        <ButtonFirst>&lt;&lt;</ButtonFirst>
-        <ButtonBack>&lt;</ButtonBack>
+        <ButtonFirst>First</ButtonFirst>
+        <ButtonBack>Back</ButtonBack>
 
         <Slider>
           <Slide index={0}>
@@ -101,8 +101,8 @@ const Projects = () => {
           </Slide>
         </Slider>
 
-        <ButtonNext>&gt;</ButtonNext>
-        <ButtonLast>&gt;&gt;</ButtonLast>
+        <ButtonNext>Next</ButtonNext>
+        <ButtonLast>Last</ButtonLast>
 
       </CarouselProvider>
 

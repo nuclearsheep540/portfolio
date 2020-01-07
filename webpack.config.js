@@ -7,7 +7,7 @@ module.exports = {
   entry: './src/app.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve('dist'),
     publicPath: '/'
   },
   module: {
@@ -21,11 +21,11 @@ module.exports = {
     contentBase: path.resolve('src'),
     hot: true,
     open: true,
-    port: 4000,
+    port: 8000,
     watchContentBase: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:8000',
+      '/api': 'http://localhost:4000',
       secure: 'false'
     }
   },

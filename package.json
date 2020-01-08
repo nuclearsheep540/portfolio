@@ -11,7 +11,7 @@
     "back": "nodemon index.js",
     "build": "webpack -p",
     "postinstall":"webpack -p",
-    "start": "node index",
+    "start": "node index"
   },
   "repository": {
     "type": "git",

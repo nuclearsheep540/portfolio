@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 require('dotenv').config()
 
 module.exports = {
-  entry: './src/app.js',
+  entry: 'src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',

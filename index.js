@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const logger = require('./lib/logger')
 const router = require('./config/router')
-const errorHandler = require('./lib/errorHandler')
+// const errorHandler = require('./lib/errorHandler')
 
 
 mongoose.connect(dbURI,
@@ -18,7 +18,7 @@ app.use(logger)
 
 app.use('/api', router)
 
-app.use(errorHandler)
+// app.use(errorHandler)
 
 app.get('/*', (req, res) => req.status(404).json({ message: 'Not found' }))
 

@@ -1,17 +1,17 @@
 const { dbURI, port } = require('./config/environment')
 const express = require('express')
 const app = express()
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const logger = require('./lib/logger')
 const router = require('./config/router')
 // const errorHandler = require('./lib/errorHandler')
 
 
-mongoose.connect(dbURI,
-  { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-  console.log('mongo is running')
-)
+// mongoose.connect(dbURI,
+//   { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
+//   console.log('mongo is running')
+// )
 app.use(bodyParser.json())
 
 app.use(logger)

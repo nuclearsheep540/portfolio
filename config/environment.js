@@ -1,5 +1,5 @@
-
-const port = process.env.PORT || 4000 
+const port = 4000
+const dbURI = 'mongodb://localhost/portfolio'
 const secret = 'shh! not telling'
 
-module.exports = { port, secret }
+module.exports = { dbURI, port, secret }

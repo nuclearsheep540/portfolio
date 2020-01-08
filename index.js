@@ -1,20 +1,9 @@
-const port = process.env.PORT || 4000
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser')
-const logger = require('./lib/logger')
-const router = require('./config/router')
+const port = process.env.PORT || 4000
 
+app.use(express.static(`${__dirname}/dist`))
 
-app.use(bodyParser.json())
-app.use(logger)
-app.use('/api', router) 
+app.use('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
-
-
-app.use(express.static('public'))
-
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
-//any get request come deploy, use index.html at bundle dist folder
-
-app.listen(port, () => console.log(`node server running on :${port}`))
+app.listen(port, () => console.log(`Express is running on port ${port}`))

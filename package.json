@@ -7,14 +7,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "front": "webpack-dev-server",
     "back": "nodemon index.js",
-    "deploy": "gh-pages-deploy",
     "build": "webpack -p",
     "postinstall":"webpack -p",
-    "start": "node index.js",
-    "clean-source": "rimraf README.md src webroot package.json"
+    "start": "node index",
   },
   "repository": {
     "type": "git",

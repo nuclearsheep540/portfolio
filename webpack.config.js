@@ -1,14 +1,12 @@
 const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
-require('dotenv').config()
 
 module.exports = {
   entry: './src/app.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    path: path.resolve('dist'),
     publicPath: '/'
   },
   module: {
@@ -26,20 +24,18 @@ module.exports = {
     watchContentBase: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:4000',
-      secure: 'false'
+      '/api': {
+        target: 'http://localhost:4000',
+        secure: 'false'
+      }
     }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
-    }),
-    new CopyWebpackPlugin([
-      { from: './src/assets', to: 'assets' }
-    ]),
-    new webpack.EnvironmentPlugin(['MAPBOX_ACCESS_TOKEN'])
+    })
   ]
 }

@@ -14,7 +14,7 @@ export default class Landing extends React.Component {
     this.nav = this.nav.bind(this)
   }
 
-  componentDidMount() { 
+  componentDidMount() {
     window.addEventListener('scroll', () => { // listen for scrolling for nav func
       this.setState({ scroll: scrollX })
       if (this.state.scroll > 20) {
@@ -22,24 +22,25 @@ export default class Landing extends React.Component {
       }
     })
 
-    setTimeout(() => { //set video after xxxx ms
-      const videoOptions = {
-        src: '../../assets/hero_vid_clean_best.mp4',
-        autoPlay: true,
-        loop: true,
-        muted: true
-      }
-      
+    const videoOptions = {
+      src: '../../assets/hero_vid_clean_best.mp4',
+      autoPlay: true,
+      loop: true,
+      muted: true
+    }
+    setTimeout(() => {
+      this.setState({ videoOptions })
+    },1400)
+
+    setTimeout(() => { //set video after xxxx ms      
       // overlay 40% alpha on video
       document.querySelector('.hero').style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
+    }, 1300)
 
-      // set video options to update background with video
-      this.setState( { videoOptions } )
+    setTimeout(() => { // remove the initial transition after its occoured
+      document.querySelector('.hero').style.transition = '0s'
+    }, 1350)
 
-      setTimeout(()=> { // remove the initial transition after its occoured
-        document.querySelector('.hero').style.transition = '0s' 
-      }, 500)
-    }, 500)
   } // end of mount
 
   nav() { // scroll true ? nav to home
@@ -50,21 +51,22 @@ export default class Landing extends React.Component {
   }
 
   render() {
-  
+
     return (
       <div className='scrollable'>
-        <div className={`${this.state.nav === true ? 'animated slideOutLeft faster hero-vid' : 'animated hero-vid'}`}>
-          <VideoCover
-            className={this.state.videoOptions.autoPlay ? 'animated fadeIn slower' : ''}
-            id='hero-vid'
-            videoOptions={this.state.videoOptions}
-          />
+        <div className={`${this.state.nav === true ? 'animated slideOutLeft faster hero-vid' : 'animated fadeIn hero-vid'}`}>
+          <div className={`${this.state.nav === true ? 'animated slideOutLeft faster hero-vid' : 'animated fadeIn slow delay-1s hero-vid'}`}>
+            <VideoCover
+              id='hero-vid'
+              videoOptions={this.state.videoOptions}
+            />
+          </div>
           <div className='hero'>
             <div className='logo'>
               <img src='../../assets/md_logo.png' id='logo'></img>
               <h3 id='sub'>FULL STACK DEVELOPER</h3>
             </div>
-            <div className="center-con">
+            <div className="">
               <div className="round" onClick={this.nav}>
                 <div id="cta">
                   <span className="arrow primera next "></span>

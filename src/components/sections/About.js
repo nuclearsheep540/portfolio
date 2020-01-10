@@ -5,96 +5,110 @@ import 'pure-react-carousel/dist/react-carousel.es.css'
 
 
 
-const About = ({ className, id }) => {
+const About = ({ className, id, nextId, backId, aboutMe, lastId, firstId }) => {
+
   return (
-    <div className='section leftCar'>
 
-      <CarouselProvider
-        naturalSlideWidth={1000}
-        naturalSlideHeight={500}
-        totalSlides={8}
-      >
-        <ButtonFirst>First</ButtonFirst>
-        <ButtonBack>Back</ButtonBack>
 
-        <Slider>
-          <Slide index={0}>
-            <section id='about1' className={id !== 1 ? className : ''}>
-              <h1>HELLO WORLD</h1>
-              <h2>My name is Matt and I'm a developer</h2>
-            </section>
-          </Slide>
+    <div className={className}>
+      <section>
+        <h1>HELLO WORLD</h1>
+        <h2>My name is Matt and I'm a developer</h2>
 
-          <Slide index={1}>
-            <section id='about2' className={id !== 2 ? className : ''}>
-              <img src='https://media.giphy.com/media/fdcibA8CVjFFS/giphy.gif' className='gif'></img>
-              <p>Well, isn't that cheesey?</p>
-              {/* bear wave */}
-            </section>
-          </Slide>
+        {/* slide text */}
+        <div className='text-center'>
+          <p className={id === -1 ? 'animated fadeIn fast' : 'hidden'}>Well, isn't that cheesey?</p>
+          <p className={id === -1 ? 'stealth' : 'hidden'}>spacer</p>
 
-          <Slide index={2}>
-            <section id='about3' className={id !== 3 ? className : ''}>
-              <img src='https://media.giphy.com/media/ZA3hq5fAIsQPS/giphy-downsized-large.gif' className='gif'></img>
-              <p>I love to build things</p>
-              {/* lego build */}
-            </section>
-          </Slide>
+          <p className={id === 0 ? 'animated fadeIn fast' : 'hidden'}>I love to build things</p>
+          <p className={id === 0 ? 'stealth' : 'hidden'}>spacer</p>
 
-          <Slide index={3}>
-            <section id='about4' className={id !== 4 ? className : ''}>
-              <img src='https://media.giphy.com/media/QB78LMb32YqoE/200w_d.gif' className='gif'></img>
-              <p>Not those kind of things</p>
-              {/* gif cry */}
-            </section>
-          </Slide>
+          <p className={id === 1 ? 'animated fadeIn fast' : 'hidden'}>Not those kind of things</p>
+          <p className={id === 1 ? 'stealth' : 'hidden'}>spacer</p>
 
-          <Slide index={4}>
-            <section id='about5' className={id !== 5 ? className : ''}>
-              <img src='https://media.giphy.com/media/fnuSiwXMTV3zmYDf6k/giphy-downsized.gif' className='gif'></img>
-              <p>So who am I?</p>
-              {/* kazoo kid */}
-            </section>
-          </Slide>
+          <p className={id === 2 ? 'stealth' : 'hidden'}>spacer</p>
+          <p className={id === 2 ? 'stealth' : 'hidden'}>spacer</p>
 
-          <Slide index={5}>
-            <section id='about6' className={id !== 6 ? className : ''}>
-              <iframe className='map' src='../Map.html'></iframe>
-              <p>Previously, I built digital content and assets for web, all around the world, for big names and brands. Now, I'm a full time full stack developer, always on the look for work.</p>
-            </section>
-          </Slide>
+          <p className={id === 3 ? 'animated fadeIn fast' : 'hidden'}>Previously, I built digital content and assets for web, all around the world, for big names and brands. </p>
+          <p className={id === 3 ? 'animated fadeIn fast' : 'hidden'}> Now, I'm a full time full stack developer, always on the look for work.</p>
 
-          <Slide index={6}>
-            <section id='about7' className={id !== 7 ? className : ''}>
-              <img src='https://media.giphy.com/media/yODVOeMxWBwBO/giphy.gif' className='gif'></img>
-              <p>Also, I'm a full-time geek; I love building custom pcs and love to game too. I'm also hooked on anime and anything about space. When I'm not geeking out, I'm usually snowboarding or drinking</p>
-              {/* nerd */}
-            </section>
-          </Slide>
+          <p className={id === 4 ? 'animated fadeIn fast' : 'hidden'}>Also, I'm a full-time geek; I love building custom pcs and love to game too. </p>
+          <p className={id === 4 ? 'animated fadeIn fast' : 'hidden'}>I'm also hooked on anime and anything about space. When I'm not geeking out, I'm usually snowboarding or drinking</p>
 
-          <Slide index={7}>
-            <section id='about8' className={id !== 8 ? className : ''}>
-              <img src='https://media.giphy.com/media/JSf51ChnoltKM/giphy.gif' className='gif'></img>
-              <p>Want to chat about a project, or want a copy of my CV? Then contact me on my website. Make sure to leave a valid email address in the form so I can get back to you!</p>
-              {/* call me */}
-            </section>
-          </Slide>
-        </Slider>
-
-     
-        <ButtonNext>Next</ButtonNext>
-        <ButtonLast>Last</ButtonLast>
-
-      </CarouselProvider>
-
-      {/* <div className='right'>
-        <div>
-          <h3>Hey there</h3>
-          <p>My name is matt</p>
+          <p className={id === 5 ? 'animated fadeIn fast' : 'hidden'}>Want to chat about a project, or want a copy of my CV?</p>
+          <p className={id === 5 ? 'animated fadeIn fast' : 'hidden'}>Then contact me on my website. Make sure to leave a valid email address in the form so I can get back to you!</p>
         </div>
-      </div> */}
-      
+
+        <CarouselProvider
+          naturalSlideWidth={500}
+          naturalSlideHeight={500}
+          totalSlides={7}
+        >
+
+          <Slider>
+            <Slide index={0}>
+              <img src='https://media.giphy.com/media/TGq2OgACJPAZO/giphy.gif' className='gif' ></img>
+              {/* bear wave */}
+            </Slide>
+
+            <Slide index={1}>
+              <img src='https://media.giphy.com/media/ZA3hq5fAIsQPS/giphy-downsized-large.gif' className='gif'></img>
+              {/* lego build */}
+            </Slide>
+
+            <Slide index={2}>
+              <img src='https://media.giphy.com/media/QB78LMb32YqoE/200w_d.gif' className='gif'></img>
+              {/* gif cry */}
+            </Slide>
+
+            <Slide index={3}>
+              <img src='https://media.giphy.com/media/fnuSiwXMTV3zmYDf6k/giphy-downsized.gif' className='gif'></img>
+              {/* kazoo kid */}
+            </Slide>
+
+            <Slide index={4}>
+              <iframe className='map' src='../components/Map.html'></iframe>
+            </Slide>
+
+            <Slide index={5}>
+              <img src='https://media.giphy.com/media/JSf51ChnoltKM/giphy.gif' className='gif'></img>
+              {/* nerd */}
+            </Slide>
+
+            <Slide index={6}>
+              <img src='https://media.giphy.com/media/Cu0Iqwal4cPyU/giphy.gif' className='gif'></img>
+              {/* sailor moon */}
+            </Slide>
+          </Slider>
+
+          <div className='car-buttons'>
+            <ButtonFirst 
+              className={id === 5 ? '' : 'hidden'}
+              onClick={firstId}
+            >
+              First
+            </ButtonFirst>
+
+            <ButtonBack onClick={backId}>Back</ButtonBack>
+            <ButtonNext onClick={nextId}>Next</ButtonNext>
+
+            <ButtonLast
+              className={id === 5 ? 'hidden' : ''}
+              onClick={lastId}
+            >
+              Last
+            </ButtonLast>
+          </div>
+
+          <button className='car-close' onClick={aboutMe}>Close</button>
+          
+        </CarouselProvider>
+        
+      </section>
     </div>
+
+
+
   )
 }
 export default About

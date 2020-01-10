@@ -4,7 +4,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css'
 
 const Projects = () => {
   return (
-    <div className='section rightCar'>
+    <div className=''>
 
 
 

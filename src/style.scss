@@ -31,8 +31,8 @@ body::-webkit-scrollbar {
   height: 115vh;
   background-color: $dark;
   z-index: 2;
-  transition: linear 500ms;
-  transition-delay: 1800ms;
+  transition: ease-in-out;
+  transition-duration: 2s;
 }
 .hero-vid {
   width: 116vw;
@@ -56,6 +56,8 @@ body::-webkit-scrollbar {
   min-width: 102vw;
   min-height: 100vh;
   overflow: auto;
+  transition: ease-in-out;
+  transition-duration: 2s;
 }
 img#logo {
   max-width: 550px;
@@ -83,7 +85,15 @@ h1, h2 {
   text-align: center;
 }
 button {
-  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  width: 200px;
+  border-radius: 4px;
+}
+.text-center {
+  text-align: center;
+  width: 100%;
 }
 .bottom {
   display: inline;
@@ -92,9 +102,7 @@ button {
     color: white;
   }
 }
-.h200 {
-  min-height: 200px;
-}
+
 .hidden {
   display: none !important
 }
@@ -200,92 +208,64 @@ section {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  // border: 1px solid red;
-  
-  width: 480px;
-  min-height: 420px;
-  max-height: 420px;
-
+  height: 100vh;
+  width: 100vw;
   justify-content: flex-start;
-  margin: 10px 5px;
-  overflow: scroll;
-
   margin: auto;
+  border: 1px dashed gold;
 }
-.gif {
-  max-height: 320px;
-  min-height: 320px;
-  max-width: 480px;
-  min-width: 480px;
-  overflow: hidden;
-  border-radius: 4px;
-  // border: 2px solid blue;
+
+iframe, img.gif {
+  position: absolute;
+  align-items: center;
+  top: -10px;
+  max-width: 100%;
+  min-width: 100%;
+  overflow: clip;
 }
-.section {
-  // border: 1px solid red;
-  width: 900px;
-  max-height: inherit;
-  display: flex;
-  justify-content: flex-start;
-  padding-top: 48px;
-  margin: 10px 40px;
-  padding: 40px;
+iframe {
+  min-height: 100%;
 }
+.feature { 
+  background-color: rgba(0,0,0,0.5);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 9999;
+}
+
 .carousel {
-  // background-color: white;
   display: flex;
-  position: relative;
-  z-index: 0;
+  flex-direction: column;
+  justify-content: center;
+  max-height: 45vh;
   border-radius: 4px;
-  min-height: 422px;
-  max-height: 422px;
-  min-width: 492px;
   margin: auto;
   // border: 1px solid greenyellow;
   button {
-    background-color: rgba(0,0,0,0);
-    border: 0px;
+    width: 200px;
+    background-color: rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0);
+    border-radius: 2px;
+    margin: 2px;
+  }
+  button.car-close {
+    min-width: 608px;
   }
 }
+
 .horizontalSlider___281Ls, .carousel__slider, .carousel__slider--horizontal{
   min-height: inherit;
   min-width: inherit;
 }
 
+.car-buttons{
+  display: flex;
+  flex-direction: row;
+}
+
 //    PROJECTS
 // -----------
-.rightCar {
-  display: flex;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  position: relative;
-}
-// .leftCar {
-//   display: flex;
-//   justify-content: flex-start;
-//   flex-wrap: wrap;
-//   position: relative;
-// }
-.leftCar {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  position: relative;
-}
-.right {
-  display: flex;
-  justify-content: flex-end;
-  width: 45%;
-  text-align: right;
-  // border: 1px solid purple;
-}
-.left {
-  display: flex;
-  justify-content: flex-start;
-  width: 45%;
-  text-align: left;
-  // border: 1px solid purple;
-}
 
 
 
@@ -321,8 +301,11 @@ nav > a {
   cursor: pointer;
   z-index: 9;
   font-family: 'Courier Prime', monospace;
-  top: 15px;
-  right: 25px;
+  top: 10px;
+  right: -5px;
+}
+a > img {
+  max-width: 100px;
 }
 
 

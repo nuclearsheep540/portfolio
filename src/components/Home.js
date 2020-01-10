@@ -5,13 +5,14 @@ import About from './sections/About'
 import Skills from './sections/Skills'
 import Projects from './sections/Projects'
 import ContactForm from './common/ContactForm'
-import Navbar from './common/Navbar'
+
 
 export default class Home extends React.Component {
   constructor() {
     super()
     this.state = {
-      aboutId: 1,
+      aboutVis: 'hidden',
+      aboutId: -1,
       scroll: 2,
       scrollx: 0,
       toggleForm: false,
@@ -37,26 +38,44 @@ export default class Home extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleForm = this.toggleForm.bind(this)
     this.search = this.search.bind(this)
+    this.nextAboutId = this.nextAboutId.bind(this)
+    this.backAboutId = this.backAboutId.bind(this)
+    this.lastAboutId = this.lastAboutId.bind(this)
+    this.firstAboutId = this.firstAboutId.bind(this)
+    this.aboutMe = this.aboutMe.bind(this)
 
   }
-
 
   componentDidMount() {
     document.getElementsByTagName('form')[0].classList.add('stealth')
     document.getElementsByTagName('body')[0].style.backgroundColor = 'rgb(250,250,250)'
-
-    // const car = document.querySelectorAll('.carousel')[0]
-    // car.addEventListener('scroll', () => { 
-    //   const left = car.scrollLeft 
-    //   //how far left we've scrolled
-    //   const right = Math.round(car.scrollLeft - car.scrollWidth + ( car.clientWidth )) 
-    //   //how far left, against the width of the elem, to find right
-    //   console.log('away from left :', left)
-    //   console.log('away from right:', right)
-    // })
   }
 
+  //carousel buttons
+  nextAboutId() {
+    this.setState({ aboutId: this.state.aboutId + 1 })
+    console.log(this.state.aboutId)
+  }
+  backAboutId() {
+    this.setState({ aboutId: this.state.aboutId - 1 })
+    console.log(this.state.aboutId)
+  }
+  firstAboutId() {
+    this.setState({ aboutId: -1 })
+    console.log(this.state.aboutId)
+  }
+  lastAboutId() {
+    this.setState({ aboutId: 5 })
+    console.log(this.state.aboutId)
+  }
 
+  //hide or show carousel
+  aboutMe() {
+    this.setState({
+      ...this.state,
+      aboutVis: this.state.aboutVis === 'hidden' ? 'feature' : 'hidden'
+    })
+  }
 
   handleSubmit() {
     const obj = { //formatting for SocketLabs object
@@ -80,11 +99,12 @@ export default class Home extends React.Component {
       .then(
         setTimeout(() => {
           document.getElementById('formSent').classList.add('boot'),
-          document.getElementById('formSent').classList.remove('hidden')
+            document.getElementById('formSent').classList.remove('hidden')
         }, 150)
       )
       .catch(err => console.log(err))
   }
+
   handleCC() {
     const sender = { // copy for contacter
       to: this.state.form.email, //contact's email address
@@ -124,7 +144,7 @@ export default class Home extends React.Component {
       setTimeout(() => {
         document.getElementById('form1').focus()
         document.querySelector('a').style.color = '#E3F8FF'
-        document.querySelector('a').innerHTML = 'close [x]'
+        // document.querySelector('a').innerHTML = 'close [x]'
       }, 2300)
     } else {
       this.setState({
@@ -137,10 +157,10 @@ export default class Home extends React.Component {
           message: ''
         }
       })
-      setTimeout(() => {
-        document.querySelector('a').style.color = '#E3F8FF'
-        document.querySelector('a').innerHTML = 'contact.exe'
-      }, 1200)
+      // setTimeout(() => {
+      //   document.querySelector('a').style.color = '#E3F8FF'
+      //   document.querySelector('a').innerHTML = <img src='../assets/burger.png'></img>
+      // }, 1200)
       document.getElementById('formSent').classList.remove('boot')
       document.getElementById('emailErr').classList.add('hidden')
       document.getElementById('form1').disabled = false
@@ -161,7 +181,7 @@ export default class Home extends React.Component {
     }
     if (event.key === 'Enter' && this.state.formStage === 3 && this.state.form.email.includes('@')) {
       this.handleSubmit(),
-      this.handleCC()
+        this.handleCC()
     } else if (event.key === 'Enter' && this.state.formStage === 3 && !this.state.form.email.includes('@'))
       document.getElementById('emailErr').classList.remove('hidden')
   }
@@ -170,18 +190,21 @@ export default class Home extends React.Component {
     if (!this.state) return null
 
     return (
+      // prevent on-page reload to initiate first time animation
       <div className={`${this.props.history.action === 'PUSH' ? 'animated fadeIn delay-1s' : ''}`}>
 
+        {/* background elements */}
         <div className='limiter'>
           <div className='element'></div>
           <div className='back-2'></div>
         </div>
 
+        {/* contact */}
         <nav>
-          <Navbar />
-          <a onClick={this.toggleForm}>contact.exe</a>
-        </nav>
+          <a onClick={this.toggleForm} className={this.state.formStage > 0 ? 'hidden' : ''}><img src='../assets/burger.png'></img></a>
 
+          <a onClick={this.toggleForm} className={this.state.formStage > 0 ? '' : 'hidden'}><img src='../assets/close.png'></img></a>
+        </nav>
         <ContactForm
           handleSubmit={this.handleSubmit}
           handleChange={this.handleChange}
@@ -190,22 +213,38 @@ export default class Home extends React.Component {
           search={this.search}
         />
 
+        {/* content */}
         <div className='master'>
+
+          <section id='about1' className={this.state.aboutVis === 'hidden' ? 'master' : 'stealth'}>
+            <h1>HELLO WORLD</h1>
+            <h2>My name is Matt and I'm a developer</h2>
+            <button onClick={this.aboutMe} className={this.state.aboutVis === 'hidden' ? '' : 'hidden'}>Learn More</button>
+          </section>
+
           <About
-            className=''
+            className={this.state.aboutVis}
             id={this.state.aboutId}
+            nextId={this.nextAboutId}
+            backId={this.backAboutId}
+            firstId={this.firstAboutId}
+            lastId={this.lastAboutId}
+            aboutMe={this.aboutMe}
           />
 
-          <Projects
-            className=''
-          />
+          <section className={this.state.aboutVis === 'hidden' ? 'master' : 'hidden'}>
+            <Projects
+              className=''
+            />
+          </section>
 
-          <Skills
-            className=''
-          />
+          <section className={this.state.aboutVis === 'hidden' ? 'master' : 'hidden'}>
+            <Skills
+              className=''
+            />
+          </section>
         </div>
       </div>
-
     )
   }
 }

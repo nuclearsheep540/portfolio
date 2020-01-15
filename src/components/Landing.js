@@ -30,16 +30,16 @@ export default class Landing extends React.Component {
     }
     setTimeout(() => {
       this.setState({ videoOptions })
-    },1400)
+    },1800)
 
     setTimeout(() => { //set video after xxxx ms      
       // overlay 40% alpha on video
       document.querySelector('.hero').style.backgroundColor = 'rgba(0, 0, 0, 0.6)'
-    }, 1300)
+    }, 1700)
 
     setTimeout(() => { // remove the initial transition after its occoured
       document.querySelector('.hero').style.transition = '0s'
-    }, 1350)
+    }, 1750)
 
   } // end of mount
 

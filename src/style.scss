@@ -204,12 +204,19 @@ div.master {
 
 //      ABOUT
 // -----------
+
+#about1 {
+  max-height: 300px;
+}
+#skills1 {
+  max-height: 500px;
+}
 section {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  height: 100vh;
-  width: 100vw;
+  height: 60vh;
+  width: 90vw;
   justify-content: flex-start;
   margin: auto;
   border: 1px dashed gold;
@@ -244,13 +251,14 @@ iframe {
   // border: 1px solid greenyellow;
   button {
     width: 200px;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.8);
     border: 1px solid rgba(0,0,0,0);
     border-radius: 2px;
     margin: 2px;
   }
   button.car-close {
     min-width: 608px;
+    cursor: pointer;
   }
 }
 
@@ -262,10 +270,150 @@ iframe {
 .car-buttons{
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
 }
 
 //    PROJECTS
 // -----------
+.pct60 {
+  max-width: 60%;
+  margin: auto;
+  padding: 20px;
+}
+.coverflow {
+  display: flex;
+  justify-content: space-evenly;
+
+  margin: auto;
+  
+  text-decoration: none;
+  list-style: none;
+  width: 90vw;
+  height: fit-content;
+  transform: translateX(-2vw);
+  margin-top: 20px;
+  border: 1px dashed greenyellow
+
+}
+
+ul#menu {
+  padding: 0;
+  margin: 0;
+  -moz-perspective: 780px;
+  -webkit-perspective: 780px;
+  perspective: 780px;
+  background-color: transparent;
+}
+
+ul#menu li a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+ul#menu li {
+  text-indent: -9999px;
+  position: relative;
+  display: inline-block;
+  width: 254px;
+  height: 159px;
+  margin-right: -70px;
+  -moz-background-size: contain;
+  -webkit-background-size: contain;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  z-index: 50;
+  -moz-transform: rotateY(45deg);
+  -webkit-transform: rotateY(45deg);
+  transform: rotateY(45deg);
+  -moz-transition: all .45s;
+  -webkit-transition: all .45s;
+  transition: all .45s;
+  opacity: .8;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 0 30px rgba(0,0,0,0.2);
+}
+
+ul#menu li:last-child,
+ul#menu li:first-child { z-index: 45; }
+
+ul#menu li:nth-child(2),
+ul#menu li:nth-child(5) { z-index: 46; }
+
+ul#menu li:nth-child(3) { z-index: 51; }
+
+ul#menu li.highlighted {
+  -moz-transform: rotateY(0deg) scale(1.2);
+  -webkit-transform: rotateY(0deg) scale(1.2);
+  transform: rotateY(0deg) scale(1.2);
+  z-index: 65!important;
+}
+
+ul#menu .highlighted ~ li {
+  -moz-transform: rotateY(-45deg);
+  -webkit-transform: rotateY(-45deg);
+  transform: rotateY(-45deg);
+}
+
+ul#menu li:hover,
+ul#menu li:first-child:hover,
+ul#menu li.highlighted ~ li:hover { z-index: 60!important; }
+
+ul#menu li:hover {
+  -moz-transform: rotateY(0deg) scale(1.2);
+  -webkit-transform: rotateY(0deg) scale(1.2);
+  transform: rotateY(0deg) scale(1.2);
+  opacity: 1;
+}
+
+ul#menu li:hover ~ li {
+  -moz-transform: rotateY(-45deg);
+  -webkit-transform: rotateY(-45deg);
+  transform: rotateY(-45deg);
+}
+
+ul#menu:hover li:not(:hover) {
+  -moz-transform: rotateY(45deg);
+  -webkit-transform: rotateY(45deg);
+  transform: rotateY(45deg);
+}
+
+ul#menu:hover li:hover ~ li {
+  -moz-transform: rotateY(-45deg);
+  -webkit-transform: rotateY(-45deg);
+  transform: rotateY(-45deg);
+}
+
+ul#menu:not(:hover) li.highlighted { opacity: 1; }
+
+ul#menu li:after {
+  content: "";
+  width: 254px;
+  height: 30px;
+  background: rgba(255,255,255,.5);
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  -webkit-mask-image: -webkit-gradient(linear, left 10%, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,.5)));
+  background-image: inherit;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scaleY(-1);
+  background-position: bottom;
+  
+}
+
+ul#menu li:nth-child(1) { background-image: url('../src/assets/proj/deepsea.png'); }
+
+ul#menu li:nth-child(2) { background-image: url('../src/assets/proj/gigonamap.png'); }
+
+ul#menu li:nth-child(3) { background-image: url('../src/assets/proj/whatify.png'); }
+
+ul#menu li:nth-child(4) { background-image: url('../src/assets/proj/gonsalves.png'); }
+
+// ul#menu li:nth-child(5) { background-image: url(5.jpg); }
+
+// ul#menu li:nth-child(6) { background-image: url(6.jpg); }
 
 
 

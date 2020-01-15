@@ -11,6 +11,7 @@ export default class Home extends React.Component {
   constructor() {
     super()
     this.state = {
+      projectVis: false,
       aboutVis: 'hidden',
       aboutId: -1,
       scroll: 2,
@@ -43,6 +44,7 @@ export default class Home extends React.Component {
     this.lastAboutId = this.lastAboutId.bind(this)
     this.firstAboutId = this.firstAboutId.bind(this)
     this.aboutMe = this.aboutMe.bind(this)
+    this.projectShow = this.projectShow.bind(this)
 
   }
 
@@ -77,6 +79,23 @@ export default class Home extends React.Component {
     })
   }
 
+  projectShow(e){
+    e.preventDefault()
+    if (this.state.projectVis) document.getElementById(this.state.projectVis).classList.add('hidden')
+    console.log(e.target.name)
+    const li = document.getElementsByTagName('li')
+    const element = document.getElementById(e.target.name)
+    for (let i = 0; i < li.length; i++) {
+      li[i].classList.remove('highlighted')
+    }
+    document.getElementById(e.target.name + 'li').classList.add('highlighted')
+    element.classList.remove('hidden')
+    this.setState({
+      ...this.state,
+      projectVis: e.target.name
+    })
+  }
+
   handleSubmit() {
     const obj = { //formatting for SocketLabs object
       to: 'matt.davey540@me.com', //client's email address
@@ -99,7 +118,7 @@ export default class Home extends React.Component {
       .then(
         setTimeout(() => {
           document.getElementById('formSent').classList.add('boot'),
-            document.getElementById('formSent').classList.remove('hidden')
+          document.getElementById('formSent').classList.remove('hidden')
         }, 150)
       )
       .catch(err => console.log(err))
@@ -181,7 +200,7 @@ export default class Home extends React.Component {
     }
     if (event.key === 'Enter' && this.state.formStage === 3 && this.state.form.email.includes('@')) {
       this.handleSubmit(),
-        this.handleCC()
+      this.handleCC()
     } else if (event.key === 'Enter' && this.state.formStage === 3 && !this.state.form.email.includes('@'))
       document.getElementById('emailErr').classList.remove('hidden')
   }
@@ -232,13 +251,14 @@ export default class Home extends React.Component {
             aboutMe={this.aboutMe}
           />
 
-          <section className={this.state.aboutVis === 'hidden' ? 'master' : 'hidden'}>
+          <section id='projects1'>
             <Projects
-              className=''
+              className={this.state.projectVis}
+              projectShow={this.projectShow}
             />
           </section>
 
-          <section className={this.state.aboutVis === 'hidden' ? 'master' : 'hidden'}>
+          <section id='skills1'>
             <Skills
               className=''
             />

@@ -7,7 +7,6 @@ const client = new SocketLabsClient(serverId, injectionApiKey)
 
 // eslint-disable-next-line no-unused-vars
 function send(req, _res){
-  console.log('sending form...')
   client.send(req.body).then(
     (res) => {
       //Handle successful API call

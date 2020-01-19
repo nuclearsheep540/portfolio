@@ -97,7 +97,6 @@ export default class Home extends React.Component {
   }
 
   handleSubmit() {
-    console.log('building object...')
     const obj = { //formatting for SocketLabs object
       to: 'matt.davey540@me.com', //client's email address
       from: this.state.form.email, //contact's email address
@@ -115,11 +114,9 @@ export default class Home extends React.Component {
     `,
       messageType: 'basic'
     }
-    console.log('posting...')
     axios.post('/api/contact', obj)
       .then(
         setTimeout(() => {
-          console.log('updating form text...')
           document.getElementById('formSent').classList.add('boot'),
           document.getElementById('formSent').classList.remove('hidden')
         }, 150)
@@ -127,31 +124,6 @@ export default class Home extends React.Component {
       .then(res => console.log('handle submit response:',res))
       .catch(err => console.log('handle submit error:',err))
   }
-
-  // handleCC() {
-  //   const sender = { // copy for contacter
-  //     to: this.state.form.email, //contact's email address
-  //     from: 'matt.davey540@me.com', //client's email address
-  //     subject: 'Thanks for getting in touch',
-  //     textBody: 'We\'re just letting you know we\'ve recieved your message',
-  //     htmlBody: `
-  //     <html>
-  //     Thanks for getting in touch, ${this.state.form.firstname} <br />
-  //     <br />
-  //     If you're receiving this message, it's to confirm we've got your following message: <br>
-  
-  //     ${this.state.form.message.replace('\n\n', '<br /> <br />').replace('\n', '<br />')}<br />
-  //     <br />
-  //     We'll try and get back to you as soon as possible. <br />
-  //     Thanks!
-  //     </html>
-  //     `,
-  //     messageType: 'basic'
-  //   }
-  //   axios.post('/api/contact', sender)
-  //     .then(res => console.log(res))
-  //     .catch(err => console.log(err))
-  // }
 
   handleChange({ target: { name, value } }) {
     const form = { ...this.state.form, [name]: value }
@@ -161,7 +133,7 @@ export default class Home extends React.Component {
   toggleForm(e) { // is the contact form open or not & resets
     e.preventDefault()
     this.setState({ toggleForm: !this.state.toggleForm })
-    // console.log('form state ', this.state.toggleForm)
+    console.log('form state ', this.state.toggleForm)
     if (this.state.formStage === 0) {
       this.setState({ formStage: 1 })
       setTimeout(() => {
@@ -196,10 +168,11 @@ export default class Home extends React.Component {
     if (event.key === 'Enter') {
       const Stage = this.state.formStage
       this.setState({ formStage: Stage + 1 })
-      // console.log('form' + this.state.formStage)
+      console.log('form' + this.state.formStage)
       document.getElementById('form' + this.state.formStage).disabled = true
       setTimeout(() => {
-        document.getElementById('form' + this.state.formStage).focus()
+        Stage + 1 < 4 ? 
+          document.getElementById('form' + this.state.formStage).focus() : null
       }, 50)
     }
     if (event.key === 'Enter' && this.state.formStage === 3 && this.state.form.email.includes('@')) {

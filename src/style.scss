@@ -21,6 +21,12 @@ $white: rbg(250,250,250);
 body::-webkit-scrollbar {
   display: none;
 }
+img#swipe {
+  position: absolute;
+  transform: rotate(90deg);
+  max-width: 50px;
+  padding: 20px;
+}
 .hero {
   display: flex;
   flex-direction: column;
@@ -35,7 +41,7 @@ body::-webkit-scrollbar {
   transition-duration: 2s;
 }
 .hero-vid {
-  width: 116vw;
+  width: 118vw;
   height: 115vh;
   position: fixed;
   margin: auto;
@@ -50,7 +56,7 @@ body::-webkit-scrollbar {
   margin: auto 0;
   transform: translateY(15%);
 }
-.scrollable {
+.scroll {
   position: absolute;
   z-index: -9999;
   min-width: 102vw;
@@ -58,6 +64,7 @@ body::-webkit-scrollbar {
   overflow: auto;
   transition: ease-in-out;
   transition-duration: 2s;
+  overflow-y: hidden;
 }
 img#logo {
   max-width: 550px;
@@ -69,6 +76,9 @@ h3#sub {
 }
 // GLOBAL ELEM
 // -----------
+p {
+  margin: 8px 0px;
+}
 body {
   background-color:$black !important
 }
@@ -99,7 +109,7 @@ button {
   display: inline;
   a {
     text-decoration: none;
-    color: white;
+    color: black;
   }
 }
 
@@ -120,13 +130,13 @@ html {
 }
 div.master {
   width: 100vw;
-  height: 100%;
+  // height: 100%;
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 2;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .limiter {
@@ -215,11 +225,10 @@ section {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  height: 60vh;
+  min-height: 50vh;
   width: 90vw;
   justify-content: flex-start;
   margin: auto;
-  border: 1px dashed gold;
 }
 
 iframe, img.gif {
@@ -237,18 +246,18 @@ iframe {
   background-color: rgba(0,0,0,0.5);
   width: 100vw;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   z-index: 9999;
+  overflow: hidden;
 }
 
 .carousel {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 45vh;
+  height: 50vh;
   border-radius: 4px;
   margin: auto;
-  // border: 1px solid greenyellow;
   button {
     width: 200px;
     background-color: rgba(255,255,255,0.8);
@@ -257,14 +266,13 @@ iframe {
     margin: 2px;
   }
   button.car-close {
-    min-width: 608px;
+    min-width: 99.3%;
     cursor: pointer;
   }
 }
 
 .horizontalSlider___281Ls, .carousel__slider, .carousel__slider--horizontal{
-  min-height: inherit;
-  min-width: inherit;
+  height: 300px;
 }
 
 .car-buttons{
@@ -275,27 +283,39 @@ iframe {
 
 //    PROJECTS
 // -----------
+
+.block {
+  display: block;
+  height: fit-content;
+}
 .pct60 {
   max-width: 60%;
   margin: auto;
   padding: 20px;
+  overflow: visible;
+}
+p.h400 {
+  min-height: 200px;
+  overflow: visible;
 }
 .coverflow {
   display: flex;
   justify-content: space-evenly;
-
   margin: auto;
-  
   text-decoration: none;
   list-style: none;
   width: 90vw;
   height: fit-content;
-  transform: translateX(-2vw);
+  transform: translateX(-2.3vw);
   margin-top: 20px;
-  border: 1px dashed greenyellow
-
 }
-
+div.proj-select {
+  // border: 2px solid gold;
+  overflow: scroll !important;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+}
 ul#menu {
   padding: 0;
   margin: 0;
@@ -384,7 +404,9 @@ ul#menu:hover li:hover ~ li {
   transform: rotateY(-45deg);
 }
 
-ul#menu:not(:hover) li.highlighted { opacity: 1; }
+ul#menu:not(:hover) li.highlighted { 
+  opacity: 1; 
+}
 
 ul#menu li:after {
   content: "";
@@ -482,7 +504,6 @@ div#message{
   flex-wrap: wrap;
 }
 label {
-  border: 0px solid greenyellow;
   font-family: 'Courier Prime', monospace;
   color: $light;
   display: inline-flex;
@@ -496,7 +517,7 @@ label.send {
   transition-delay: 300ms;
 }
 input {
-  border: 0px solid red;
+  border: 0px solid rgba(0,0,0,0);
   background-color: rgba(0,0,0,0);
   color: $light;
   font-family: 'Courier Prime', monospace;
@@ -517,6 +538,22 @@ textarea {
   outline: none;
 }
 
-
-
+//      SKILLS
+// -----------
+.gridbox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: fit-content;
+  margin: 0 auto;
+  width: 60vw;
+}
+svg {
+  width: 64px;
+  height: 64px;
+  margin: 3px;
+  color: white;
+  filter: saturate(0) brightness(10);
+  fill: #E3F8FF !important;
+}
 

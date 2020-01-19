@@ -26,14 +26,14 @@ const About = ({ className, id, nextId, backId, aboutMe, lastId, firstId }) => {
           <p className={id === 1 ? 'animated fadeIn fast' : 'hidden'}>Not those kind of things</p>
           <p className={id === 1 ? 'stealth' : 'hidden'}>spacer</p>
 
-          <p className={id === 2 ? 'stealth' : 'hidden'}>spacer</p>
+          <p className={id === 2 ? 'animated fadeIn fast' : 'hidden'}>So who am I?</p>
           <p className={id === 2 ? 'stealth' : 'hidden'}>spacer</p>
 
           <p className={id === 3 ? 'animated fadeIn fast' : 'hidden'}>Previously, I built digital content and assets for web, all around the world, for big names and brands. </p>
           <p className={id === 3 ? 'animated fadeIn fast' : 'hidden'}> Now, I'm a full time full stack developer, always on the look for work.</p>
 
           <p className={id === 4 ? 'animated fadeIn fast' : 'hidden'}>Also, I'm a full-time geek; I love building custom pcs and love to game too. </p>
-          <p className={id === 4 ? 'animated fadeIn fast' : 'hidden'}>I'm also hooked on anime and anything about space. When I'm not geeking out, I'm usually snowboarding or drinking</p>
+          <p className={id === 4 ? 'animated fadeIn fast' : 'hidden'}>I'm also hooked on anime and anything about space. When I'm not geeking out, I'm usually snowboarding</p>
 
           <p className={id === 5 ? 'animated fadeIn fast' : 'hidden'}>Want to chat about a project, or want a copy of my CV?</p>
           <p className={id === 5 ? 'animated fadeIn fast' : 'hidden'}>Then contact me on my website. Make sure to leave a valid email address in the form so I can get back to you!</p>

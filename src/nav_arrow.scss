@@ -1,10 +1,10 @@
 .round {
-  position: fixed;
-  right: 140px;
-  top: 50%;
+  position: absolute;
+  // right: 100px;
+  // top: 50%;
   margin: auto 0px;
-  min-width: 70px;
-  min-height: 70px;
+  min-width: 100px;
+  min-height: 100px;
   transform: scale(2.5);
 }
 

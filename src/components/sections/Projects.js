@@ -4,7 +4,7 @@ import React from 'react'
 const Projects = ({ projectShow }) => {
 
   return (
-    <div>
+    <div className='block'>
 
       <div className='coverflow'>
         <ul id="menu">
@@ -18,66 +18,83 @@ const Projects = ({ projectShow }) => {
 
       <div className='pct60'>
 
-        <div className='hidden' id='gonsalves'>
+        <div className='hidden proj-select' id='gonsalves'>
           <h3>Gonsalves Fitness</h3>
-          <p>React, MongoDB, Express, Node.JS, Firebase</p>
-          <p className="h400">Website for personal trainer client
+          <p>Technology: MERN Stack, Google Firebase, REST API, CRUD</p>
+          <p className='stealth'>Build Time: 14 days</p>
+          <p className="h400">Gonsalves Fitness is the first website I built as a freelance developer. It&apos;s a simple website with react front end to display information about the personal trainer.
+
+            <p>A proxy server is being run to deliver data between an API injection email service, which runs behind the contact form.</p>
+
+            <p>I have also built a backend for my client, a simple CMS tool to help them publish success stories on their website. This is a basic setup with MongoDB and simple models which outline a template for content publishing.</p>
+
+            <p>All backend pages are secure with authentication checks, and data is being encrypted for secuirty.</p>
           </p>
-          <button className='bottom'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
-          <button className='bottom'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
+          <button className='bottom'><a href='' target='_blank' rel='noopener noreferrer'>Github</a></button>
+          <button className='bottom'><a href='' target='_blank' rel='noopener noreferrer'>Launch</a></button>
         </div>
 
 
-        <div className='hidden' id='whatify'>
-          <h3>Whatify</h3>
-          <p>React JS, Express: Node.js, Python, Django, postgreSQL</p>
+        <div className='hidden proj-select' id='whatify'>
+          <h3>WHATIFY</h3>
+          <p>Technology: React, Express, Node, Python, Django, postgreSQL</p>
+          <p>Build Time: 7 days</p>
           <p className="h400">Our main focus for this app was integrating open authentication with Spotify to process user
           listening data, curating randomised quizzes tailored to the user’s listening experience. Using a Python
           backend we were able to handle all user authentication and the large requests of data from the spotify user.
           We used Django to manage serialization and processing of user data to our own postgreSQL database enabling
                   us to build all quiz data with our local instance of data.</p>
-          <button className='bottom'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
-          <button className='bottom'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
+          <button className='bottom'><a href='https://github.com/nuclearsheep540/whatify' target='_blank' rel='noopener noreferrer'>Github</a></button>
+          <button className='bottom'><a href='http://www.whatify.me' target='_blank' rel='noopener noreferrer'>Launch</a></button>
         </div>
 
 
 
-        <div className='hidden' id='skillswap'>
-          <h3>Skill Swap</h3>
-          <p>React JS, Express: Node.js, MongoDB & Mongoose</p>
+        <div className='hidden proj-select' id='skillswap'>
+          <h3>SKILL SWAP</h3>
+          <p>Technology: MERN Stack, CRUD</p>
+          <p>Build Time: 10 days</p>
           <p className="h400">Skill Swap is a social platform to enable new and junior developers to meet and support each
-          other throughout their early career. Our objective was to build a website that allowed users to build a
-          personal profile, which enabled each other to recognise what languages & frameworks each other were familiar
-          with. We used MongoDB to store user models and ‘requests’ models, and Mongoose parsed the data between all CRUD routes to our own built restful API.
+          other throughout their early career. Our concept was that a user&apos;s personal profile information would act as meta-data which could be paired against help request posts, this would bring people together as the relationships between user data and request data, would return true when these two data types matched.
+
+          <p>To enable this service we had to focus a lot of details in our schematics in Mongo, and also test that data was being modelled correctly. A majority of the front end is a matter of CRUD routes to our backend as we had to build routes to create: Profiles, Contribution pages, and, Request pages.
+
+          This lead to our project being very CMS orientated. 
           </p>
-          <button className='bottom'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
-          <button className='bottom'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
+          
+
+          </p>
+          <button className='bottom'><a href='https://github.com/nuclearsheep540/project-03' target='_blank' rel='noopener noreferrer'>Github</a></button>
+          <button className='bottom'><a href='https://project-skill.herokuapp.com/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
         </div>
 
 
 
-        <div className='hidden' id='gigonamap'>
-          <h3>Gig-on-a-map</h3>
-          <p>React JS, Express: Node.js, RESTful API</p>
-          <p className="h400">During this hackathon, I focussed on getting MapboxGL to display music event data as markers,
-          allowing a user to identify local gigs to their position for the current day and navigate around the map.
-          Implementing MapboxGL was interesting, we used Uber’s library and viewport component to allow for easy interaction with the map.
+        <div className='hidden proj-select' id='gigonamap'>
+          <h3>GIG-ON-A-MAP</h3>
+          <p>Technology: MERN Stack, REST API</p>
+          <p>Build Time: 2 days</p>
+          <p className="h400"> Gig-on-a-map is an app you can use to find gigs in your local area, with the convenience of displaying this data on an interactive map.
+
+            <p>During this hackathon, I focussed on building the interactive Mapbox and the auto-generation of markers to represent data from Skiddle API, allowing a users to identify local gigs to their position for the current day and navigate around the map.</p>
+
           </p>
-          <button className='bottom'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
-          <button className='bottom'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
+          <button className='bottom'><a href='https://github.com/nuclearsheep540/gigonamap' target='_blank' rel='noopener noreferrer'>Github</a></button>
+          <button className='bottom'><a href='https://gigonamap.herokuapp.com/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
         </div>
 
 
 
-        <div className='hidden' id='deepsea'>
-          <h3>Deep Sea Battle: Shots Fired!</h3>
-          <p>JavaScript, HTML5, CSS3</p>
-          <p className="h400">My first project was a cell-based JavaScript game, combining concepts from battleships as well
-          as minesweeper. I built a game full of game-logic, conditional checks, procedurally generated objects, and a
-          smooth user experience across the game. The problem I enjoyed solving the most on this project was storing
-          ship-tiles in arrays and checking tileset data before generating to ensuring ships generated on unique tiles.
+        <div className='hidden proj-select' id='deepsea'>
+          <h3>DEEP SEA BATTLE: SHOTS FIRED!</h3>
+          <p>Technology: JavaScript, HTML5, CSS3</p>
+          <p>Build Time: 7 days</p>
+          <p className="h400">My first ever JavaScript project was a cell-based JavaScript game. I built my own breif to combine concepts from battleships as well as minesweeper.
+
+            <p>My goal was to build a game full of logic, condition checks, procedurally generated objects, as well as a
+          smooth user experience across the game. The problem I enjoyed solving the most on this project was creating loads of conditional functions to validate appropraite tiles for placing data in, and utilizing a multitide of arrays to store this data.</p>
           </p>
-          <button className='bottom'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Read More</a></button>
+          <button className='bottom'><a href='https://github.com/nuclearsheep540/deepsea' target='_blank' rel='noopener noreferrer'>Github</a></button>
           <button className='bottom'><a href='https://nuclearsheep540.github.io/deepsea/' target='_blank' rel='noopener noreferrer'>Launch</a></button>
         </div>
 

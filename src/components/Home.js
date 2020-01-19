@@ -237,8 +237,8 @@ export default class Home extends React.Component {
 
           <section id='about1' className={this.state.aboutVis === 'hidden' ? 'master' : 'stealth'}>
             <h1>HELLO WORLD</h1>
-            <h2>My name is Matt and I'm a developer</h2>
-            <button onClick={this.aboutMe} className={this.state.aboutVis === 'hidden' ? '' : 'hidden'}>Learn More</button>
+            <h2>MY NAME IS MATT AND I&apos;M A DEVELOPER</h2>
+            <button onClick={this.aboutMe} className={this.state.aboutVis === 'hidden' ? '' : 'hidden'}>Learn more</button>
           </section>
 
           <About
@@ -260,7 +260,7 @@ export default class Home extends React.Component {
 
           <section id='skills1'>
             <Skills
-              className=''
+              className='block'
             />
           </section>
         </div>
